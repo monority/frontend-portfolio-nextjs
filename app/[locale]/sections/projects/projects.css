@@ -410,10 +410,7 @@
     }
 
     .project-bento__gallery-rail {
-        left: 0.65rem;
-        right: 0.65rem;
-        bottom: 3.95rem;
-        max-width: none;
+        display: none;
     }
 
     .project-bento__swatches {

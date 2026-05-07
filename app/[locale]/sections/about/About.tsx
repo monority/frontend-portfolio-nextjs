@@ -2,33 +2,46 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import Button from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { SectionEyebrow, SectionShell } from "@/components/ui/section";
 import {
     sectionFadeLeft,
     sectionFadeUp,
+    sectionStagger,
     sectionViewport,
 } from "@/components/ui/section/motion";
-import type { TechStackGroup } from "@/components/ui/tech-stack";
-import { ABOUT_TECH_CONTAINER, ABOUT_TECH_GROUPS, MARQUEE_ITEMS } from "./data";
+import { TECH_BENTO_GROUPS, MARQUEE_ITEMS } from "./data";
+import type { TechItem } from "./data";
 
 import "./about.css";
+
+const TECH_BENTO_CONTAINER = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+}
+
+function TechChip({ item }: { item: TechItem }) {
+    const sizeClass = item.level === 'primary' ? 'icon-md' : 'icon-sm'
+    return (
+        <div className={`tech-chip tech-chip--${item.level}`}>
+            <Icon name={item.id} sizeClass={sizeClass} aria-hidden="true" />
+            <span>{item.label}</span>
+        </div>
+    )
+}
 
 export default function About() {
     const t = useTranslations("about");
     const viewport = { ...sectionViewport, amount: 0.2 } as const;
-
-    const localizedTechGroups: TechStackGroup[] = ABOUT_TECH_GROUPS.map((group) => ({
-        ...group,
-        title: group.id === "frontend" ? "Front-end" : t(`tech.${group.id}`),
-    }));
 
     const stats = [
         { value: t("stats.years"), label: t("stats.yearsLabel") },
         { value: t("stats.projects"), label: t("stats.projectsLabel") },
         { value: t("stats.location"), label: t("stats.locationLabel") },
     ] as const;
+
+    const groupTitle = (id: string) =>
+        id === 'frontend' ? 'Front-end' : t(`tech.${id}`)
 
     return (
         <SectionShell id="about" className="about">
@@ -69,20 +82,31 @@ export default function About() {
                 </ul>
             </div>
 
-            <motion.div className="about-tech" variants={ABOUT_TECH_CONTAINER} initial="hidden" whileInView="visible" viewport={viewport}>
-                {localizedTechGroups.map((group) => (
-                    <motion.div key={group.id} className={group.wrapperClassName} variants={sectionFadeUp} transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
-                        <h2 className={group.titleClassName}>{group.title}</h2>
-                        <ul className={group.listClassName}>
-                            {group.items.map((tech) => (
-                                <li key={tech} className={group.itemClassName}>
-                                    <Button className="btn-primary btn-tech">
-                                        <Icon name={tech} aria-hidden="true" focusable="false" />
-                                        <span style={{ textTransform: 'capitalize' }}>{tech}</span>
-                                    </Button>
+            <motion.div
+                className="about-tech-bento"
+                variants={TECH_BENTO_CONTAINER}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewport}
+            >
+                {TECH_BENTO_GROUPS.map((group) => (
+                    <motion.div
+                        key={group.id}
+                        className={`about-bento-tile about-bento-tile--${group.id}`}
+                        variants={sectionFadeUp}
+                        transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                        <p className="about-bento-tile__title">{groupTitle(group.id)}</p>
+                        <motion.ul
+                            className="about-bento-tile__list"
+                            variants={sectionStagger}
+                        >
+                            {group.items.map((item) => (
+                                <li key={item.id}>
+                                    <TechChip item={item} />
                                 </li>
                             ))}
-                        </ul>
+                        </motion.ul>
                     </motion.div>
                 ))}
             </motion.div>

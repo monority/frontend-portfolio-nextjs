@@ -1,5 +1,6 @@
 .hero {
     min-height: 100svh;
+    position: relative;
 }
 
 .hero-layout {
@@ -89,6 +90,14 @@
     gap: var(--space-md);
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+.hero-header__caption {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    text-align: center;
+    letter-spacing: 0.02em;
 }
 
 .hero__cta {

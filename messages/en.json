@@ -13,12 +13,13 @@
   },
   "hero": {
     "name": "Ronan Chenu",
-    "role": "Front-end Developer",
+    "role": "Fullstack Developer",
     "imageAlt": "Editorial portrait of Ronan",
     "description": "Building fast, clean and maintainable web interfaces",
     "city": "Based in Lille, France",
     "availability": "Available for CDI / CDD / Remote, Freelance",
-    "cta": "See my work"
+    "cta": "See my work",
+    "avatarCaption": "Curious. Thorough. Creative."
   },
   "localTime": {
     "loadingCity": "Finding city...",

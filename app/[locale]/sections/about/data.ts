@@ -1,24 +1,73 @@
 import type { IconName } from '@shared-types/icons'
 
-export const ABOUT_TECH_CONTAINER = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
-} as const
+export type TechLevel = 'primary' | 'secondary' | 'familiar'
 
-const TECH_ROW_CLASSES = {
-  wrapperClassName: 'about-tech-row',
-  titleClassName: 'about-tech-row__title',
-  listClassName: 'about-tech-row__list',
-  itemClassName: 'about-tech-row__item',
-} as const
+export interface TechItem {
+  id: IconName
+  label: string
+  level: TechLevel
+}
 
-export const ABOUT_TECH_GROUPS = [
-  { id: 'frontend', items: ['react', 'nextjs', 'astro', 'tailwind', 'sass', 'motion'], ...TECH_ROW_CLASSES },
-  { id: 'backend', items: ['node', 'express', 'mongo', 'jwt', 'nodemon', 'sql'], ...TECH_ROW_CLASSES },
-  { id: 'hosting', items: ['vercel', 'railway', 'supabase', 'render', 'neon', 'firebase', 'cloudfare'], ...TECH_ROW_CLASSES },
-  { id: 'languages', items: ['typescript', 'javascript', 'csharp'], ...TECH_ROW_CLASSES },
-  { id: 'tools', items: ['github', 'vscode', 'postman', 'figma', 'docker', 'photoshop'], ...TECH_ROW_CLASSES },
-] as const
+export interface TechBentoGroup {
+  id: string
+  items: TechItem[]
+}
+
+export const TECH_BENTO_GROUPS: TechBentoGroup[] = [
+  {
+    id: 'frontend',
+    items: [
+      { id: 'react',      label: 'React',       level: 'primary' },
+      { id: 'nextjs',     label: 'Next.js',     level: 'primary' },
+      { id: 'tailwind',   label: 'Tailwind',    level: 'secondary' },
+      { id: 'sass',       label: 'Sass',        level: 'secondary' },
+      { id: 'motion',     label: 'Motion',      level: 'secondary' },
+      { id: 'astro',      label: 'Astro',       level: 'familiar' },
+    ],
+  },
+  {
+    id: 'backend',
+    items: [
+      { id: 'node',       label: 'Node.js',     level: 'primary' },
+      { id: 'express',    label: 'Express',     level: 'secondary' },
+      { id: 'mongo',      label: 'MongoDB',     level: 'secondary' },
+      { id: 'sql',        label: 'SQL',         level: 'secondary' },
+      { id: 'jwt',        label: 'JWT',         level: 'familiar' },
+      { id: 'nodemon',    label: 'Nodemon',     level: 'familiar' },
+    ],
+  },
+  {
+    id: 'languages',
+    items: [
+      { id: 'typescript', label: 'TypeScript',  level: 'primary' },
+      { id: 'javascript', label: 'JavaScript',  level: 'primary' },
+      { id: 'csharp',     label: 'C#',          level: 'secondary' },
+    ],
+  },
+  {
+    id: 'hosting',
+    items: [
+      { id: 'vercel',     label: 'Vercel',      level: 'primary' },
+      { id: 'supabase',   label: 'Supabase',    level: 'secondary' },
+      { id: 'railway',    label: 'Railway',     level: 'secondary' },
+      { id: 'render',     label: 'Render',      level: 'familiar' },
+      { id: 'neon',       label: 'Neon',        level: 'familiar' },
+      { id: 'firebase',   label: 'Firebase',    level: 'secondary' },
+      { id: 'cloudfare',  label: 'Cloudflare',  level: 'familiar' },
+    ],
+  },
+  {
+    id: 'tools',
+    items: [
+      { id: 'figma',      label: 'Figma',       level: 'primary' },
+      { id: 'github',     label: 'GitHub',      level: 'primary' },
+      { id: 'docker',     label: 'Docker',      level: 'secondary' },
+      { id: 'vscode',     label: 'VS Code',     level: 'secondary' },
+      { id: 'postman',    label: 'Postman',     level: 'familiar' },
+      { id: 'photoshop',  label: 'Photoshop',   level: 'secondary' },
+    ],
+  },
+]
 
 export const MARQUEE_ITEMS: { icon: IconName; label: string }[] = [
   { icon: 'react', label: 'React' },

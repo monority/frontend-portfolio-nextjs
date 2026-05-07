@@ -210,7 +210,7 @@
 
 @media (max-width: 860px) {
     .project-modal__surface {
-        height: min(100%, 100dvh - 1.2rem);
+        height: min(100%, 90dvh - 1.2rem);
         width: min(100%, 100dvw - 1.2rem);
     }
 

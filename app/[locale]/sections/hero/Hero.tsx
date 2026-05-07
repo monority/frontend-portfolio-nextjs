@@ -3,18 +3,86 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import ActionLink from "@/components/ui/action-link";
 import { Icon } from "@/components/ui/icon";
 import { sectionFadeUp, sectionStagger } from "@/components/ui/section/motion";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const heroEase = [0.16, 1, 0.3, 1] as const;
+
+// Option A: per-character animation variants
+const charVariants = {
+    hidden: { opacity: 0, y: 16, filter: "blur(4px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
+
+const wordContainer = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.04, delayChildren: 0.05 } },
+};
+
+function AnimatedTitle({ text }: { text: string }) {
+    const words = text.split(" ");
+    return (
+        <h1 className="hero-header__job heading-title" aria-label={text}>
+            {words.map((word, wi) => (
+                <span key={wi} style={{ display: "block" }}>
+                    <motion.span
+                        variants={wordContainer}
+                        initial="hidden"
+                        animate="visible"
+                        aria-hidden="true"
+                        style={{ display: "inline-block" }}
+                    >
+                        {word.split("").map((char, ci) => (
+                            <motion.span
+                                key={ci}
+                                className="hero-title__char"
+                                variants={charVariants}
+                                transition={{ duration: 0.45, ease: heroEase }}
+                                style={{ display: "inline-block" }}
+                            >
+                                {char}
+                            </motion.span>
+                        ))}
+                    </motion.span>
+                </span>
+            ))}
+        </h1>
+    );
+}
 
 export default function Hero() {
     const t = useTranslations("hero");
+    const avatarParallaxRef = useRef<HTMLDivElement>(null);
+
+    // Option C: parallax scroll
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.to(avatarParallaxRef.current, {
+                y: -40,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true,
+                },
+            });
+        });
+        return () => ctx.revert();
+    }, []);
 
     return (
-        <section className="hero" id="hero">
-            <div className="hero-shell">
+        <section
+            className="hero"
+            id="hero"
+        >
+            <div className="hero-shell" style={{ position: "relative", zIndex: 1 }}>
                 <motion.div
                     className="hero-layout"
                     variants={sectionStagger}
@@ -27,30 +95,30 @@ export default function Hero() {
                         transition={{ duration: 0.7, ease: heroEase }}
                     >
                         <div className="hero-header__titles">
-                            <h1 className="hero-header__job heading-title">
-                                {t("role").split(" ").map((word, index) => (
-                                    <span key={`${word}-${index}`}>
-                                        {index > 0 ? <br /> : null}
-                                        {word}
-                                    </span>
-                                ))}
-                            </h1>
+                            {/* Option A: animated title */}
+                            <AnimatedTitle text={t("role")} />
                         </div>
                         <div className="hero-header__legend">
-                            <motion.div
-                                className="hero-header__avatar"
-                                whileHover={{ scale: 1.02 }}
-                                transition={{ duration: 0.35, ease: heroEase }}
-                            >
-                                <Image
-                                    src="/images/avatar.webp"
-                                    alt={t("imageAlt")}
-                                    width={720}
-                                    height={960}
-                                    className="hero-header__image"
-                                    priority
-                                />
-                            </motion.div>
+                            {/* Option C: parallax wrapper + Option D: clip-path reveal */}
+                            <div ref={avatarParallaxRef}>
+                                <motion.div
+                                    className="hero-header__avatar"
+                                    initial={{ clipPath: "inset(100% 0 0 0 round 2.4rem)" }}
+                                    animate={{ clipPath: "inset(0% 0 0 0 round 2.4rem)" }}
+                                    transition={{ duration: 0.9, ease: heroEase, delay: 0.4 }}
+                                    whileHover={{ scale: 1.02 }}
+                                >
+                                    <Image
+                                        src="/images/avatar.webp"
+                                        alt={t("imageAlt")}
+                                        width={720}
+                                        height={960}
+                                        className="hero-header__image"
+                                        priority
+                                    />
+                                </motion.div>
+                            </div>
+                            <span className="hero-header__caption">{t("avatarCaption")}</span>
                         </div>
                     </motion.div>
                     <motion.div

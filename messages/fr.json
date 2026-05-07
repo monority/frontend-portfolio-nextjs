@@ -13,12 +13,13 @@
     },
     "hero": {
         "name": "Ronan Chenu",
-        "role": "Développeur Front-end",
+        "role": "Développeur Fullstack",
         "imageAlt": "Portrait éditorialisé de Ronan",
         "description": "Interfaces web rapides, propres et maintenables",
         "city": "Basé à Lille, France",
         "availability": "Disponible en CDI, CDD, remote et freelance",
-        "cta": "Voir mes projets"
+        "cta": "Voir mes projets",
+        "avatarCaption": "Curieux. Rigoureux. Créatif."
     },
     "localTime": {
         "loadingCity": "Recherche de la ville...",
