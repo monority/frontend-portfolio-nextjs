@@ -70,7 +70,7 @@ export const CREATIONS: CreationItem[] = [
       { fr: 'Scènes atmosphériques', en: 'Atmospheric scenes' },
     ],
     link: 'https://gamebanana.com/members/1448278',
-    year: '2024',
+    year: '2017',
     status: {
       fr: 'Travaux créatifs',
       en: 'Creative work',
@@ -113,7 +113,7 @@ export const CREATIONS: CreationItem[] = [
       { fr: 'Éléments d interface', en: 'Interface elements' },
     ],
     link: 'https://gamebanana.com/members/1448278',
-    year: '2024',
+    year: '2017',
     status: {
       fr: 'UI créative',
       en: 'Creative UI',
@@ -156,7 +156,7 @@ export const CREATIONS: CreationItem[] = [
       { fr: 'Système d expérience', en: 'Experience system' },
     ],
     link: 'https://iej-nouvelles-images.itch.io/rezan',
-    year: '2025',
+    year: '2017',
     status: {
       fr: 'Projet en cours',
       en: 'Work in progress',

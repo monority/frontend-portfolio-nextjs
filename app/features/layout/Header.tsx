@@ -5,10 +5,13 @@ import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import DarkModeToggle from "@/components/DarkModeToggle";
+import { useTheme } from "@/components/ThemeProvider";
 import { Icon } from "@/components/ui/icon";
 import ActionLink from "@/components/ui/action-link";
+import DarkModeToggle from "@/components/DarkModeToggle";
 import MessagingModal from "@/features/messaging/components/MessagingModal";
+import Button from "@/components/ui/button";
+import { openExternalUrl } from "@/[locale]/sections/shared/openExternalUrl";
 
 const GITHUB_URL = "https://github.com/monority";
 const LINKEDIN_URL = "https://linkedin.com/in/ronan-chenu";
@@ -23,6 +26,7 @@ type MobileMenuProps = {
 
 function MobileMenu({ isOpen, onClose, isMessagingEnabled, onOpenMessaging, localizedPath }: MobileMenuProps) {
   const t = useTranslations("header");
+  const { resolvedTheme, toggleTheme } = useTheme();
 
   return (
     <AnimatePresence>
@@ -56,10 +60,18 @@ function MobileMenu({ isOpen, onClose, isMessagingEnabled, onOpenMessaging, loca
                   </button>
                 </motion.li>
               )}
-              <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15, duration: 0.3 }} onClick={onClose}>
-                <ActionLink href={GITHUB_URL} label={t("github")} icon="github" variant="ghost" /></motion.li>
-              <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2, duration: 0.3 }} onClick={onClose}>
-                <ActionLink href={LINKEDIN_URL} label={t("linkedin")} icon="linkedin" variant="ghost" /></motion.li>
+              <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.25, duration: 0.3 }}>
+                <Link href={GITHUB_URL} className="mobile-menu__item" onClick={onClose}>
+                  <Icon name="github" title={t("github")} sizeClass="icon-sm" />
+                  <span>{t("github")}</span>
+                </Link>
+              </motion.li>
+              <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.25, duration: 0.3 }}>
+                <Link href={LINKEDIN_URL} className="mobile-menu__item" onClick={onClose}>
+                  <Icon name="linkedin" title={t("linkedin")} sizeClass="icon-sm" />
+                  <span>{t("linkedin")}</span>
+                </Link>
+              </motion.li>
               <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.25, duration: 0.3 }}>
                 <Link href={localizedPath} className="mobile-menu__item" onClick={onClose}>
                   <Icon name="language" title={t("languageSwitchTo")} sizeClass="icon-sm" />
@@ -67,10 +79,14 @@ function MobileMenu({ isOpen, onClose, isMessagingEnabled, onOpenMessaging, loca
                 </Link>
               </motion.li>
               <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.3 }}>
-                <div className="mobile-menu__item" onClick={onClose}>
-                  <DarkModeToggle ariaLabel={t("themeToggle")} />
+                <button
+                  type="button"
+                  className="mobile-menu__item"
+                  onClick={() => { toggleTheme(); onClose(); }}
+                >
+                  <Icon name={resolvedTheme === "dark" ? "lightMode" : "darkMode"} title={t("themeToggle")} sizeClass="icon-sm" />
                   <span>{t("themeToggle")}</span>
-                </div>
+                </button>
               </motion.li>
             </motion.ul>
           </motion.nav>
@@ -141,10 +157,20 @@ export default function Header() {
                   <DarkModeToggle ariaLabel={t("themeToggle")} />
                 </li>
                 <li className="header-network__item">
-                  <ActionLink href={GITHUB_URL} label={t("github")} ariaLabel={t("github")} icon="github" variant="ghost" size="sm" />
+                  <Button
+                    variant="primary"
+                    onClick={() => openExternalUrl(GITHUB_URL)}
+                    rightIcon={<Icon name="github" sizeClass="icon-sm" aria-hidden="true" />}
+                  >
+                  </Button>
                 </li>
                 <li className="header-network__item">
-                  <ActionLink href={LINKEDIN_URL} label={t("linkedin")} ariaLabel={t("linkedin")} icon="linkedin" variant="ghost" size="sm" />
+                  <Button
+                    variant="primary"
+                    onClick={() => openExternalUrl(LINKEDIN_URL)}
+                    rightIcon={<Icon name="linkedin" sizeClass="icon-sm" aria-hidden="true" />}
+                  >
+                  </Button>
                 </li>
                 <li className="header-network__item">
                   <Link href={localizedPath} className="btn btn-primary btn-sm" aria-label={t("languageSwitchTo")}>
