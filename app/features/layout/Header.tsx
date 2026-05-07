@@ -7,41 +7,22 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import DarkModeToggle from "@/components/DarkModeToggle";
 import { Icon } from "@/components/ui/icon";
+import ActionLink from "@/components/ui/action-link";
 import MessagingModal from "@/features/messaging/components/MessagingModal";
 
-const GITHUB_PROFILE_URL = "https://github.com/monority";
+const GITHUB_URL = "https://github.com/monority";
+const LINKEDIN_URL = "https://linkedin.com/in/ronan-chenu";
 
-function MobileMenu({
-  isOpen,
-  onClose,
-  isMessagingEnabled,
-  onOpenMessaging,
-}: {
+type MobileMenuProps = {
   isOpen: boolean;
   onClose: () => void;
   isMessagingEnabled: boolean;
   onOpenMessaging: () => void;
-}) {
-  const t = useTranslations("header");
-  const locale = useLocale();
-  const pathname = usePathname();
-  const nextLocale = locale === "fr" ? "en" : "fr";
-  const localizedPath = pathname?.replace(/^\/(fr|en)(?=\/|$)/, `/${nextLocale}`) || `/${nextLocale}`;
+  localizedPath: string;
+};
 
-  const items: Array<{
-    key: string;
-    icon: "message" | "github" | "language" | "theme";
-    label: string;
-    isButton?: boolean;
-    link?: string;
-    isToggle?: boolean;
-    isAction?: boolean;
-  }> = [
-      { key: "message", icon: "message", label: t("message"), isAction: isMessagingEnabled },
-      { key: "github", icon: "github", label: t("github"), isButton: true },
-      { key: "language", icon: "language", label: t("languageSwitchTo"), link: localizedPath },
-      { key: "theme", icon: "theme", label: t("themeToggle"), isToggle: true },
-    ];
+function MobileMenu({ isOpen, onClose, isMessagingEnabled, onOpenMessaging, localizedPath }: MobileMenuProps) {
+  const t = useTranslations("header");
 
   return (
     <AnimatePresence>
@@ -63,54 +44,34 @@ function MobileMenu({
             transition={{ duration: 0.3 }}
           >
             <motion.ul className="mobile-menu__list">
-              {items.map((item, index) => (
-                <motion.li
-                  key={item.key}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + index * 0.05, duration: 0.3 }}
-                >
-                  {item.isToggle ? (
-                    <div className="mobile-menu__item" onClick={onClose}>
-                      <DarkModeToggle ariaLabel={item.label} />
-                      <span>{item.label}</span>
-                    </div>
-                  ) : item.isAction ? (
-                    <button
-                      type="button"
-                      className="mobile-menu__item"
-                      onClick={() => {
-                        onClose();
-                        onOpenMessaging();
-                      }}
-                    >
-                      <Icon name={item.icon} title={item.label} sizeClass="icon-sm" />
-                      <span>{item.label}</span>
-                    </button>
-                  ) : item.isButton ? (
-                    <Link
-                      href={GITHUB_PROFILE_URL}
-                      className="btn btn-primary"
-                      aria-label={item.label}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={onClose}
-                    >
-                      <Icon name={item.icon} title={item.label} sizeClass="icon-sm" />
-                    </Link>
-                  ) : item.link ? (
-                    <Link href={item.link} className="mobile-menu__item" onClick={onClose}>
-                      <Icon name={item.icon} title={item.label} sizeClass="icon-sm" />
-                      <span>{item.label}</span>
-                    </Link>
-                  ) : (
-                    <div className="mobile-menu__item">
-                      <Icon name={item.icon} title={item.label} sizeClass="icon-sm" />
-                      <span>{item.label}</span>
-                    </div>
-                  )}
+              {isMessagingEnabled && (
+                <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1, duration: 0.3 }}>
+                  <button
+                    type="button"
+                    className="mobile-menu__item"
+                    onClick={() => { onClose(); onOpenMessaging(); }}
+                  >
+                    <Icon name="message" title={t("message")} sizeClass="icon-sm" />
+                    <span>{t("message")}</span>
+                  </button>
                 </motion.li>
-              ))}
+              )}
+              <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15, duration: 0.3 }} onClick={onClose}>
+                <ActionLink href={GITHUB_URL} label={t("github")} icon="github" variant="ghost" /></motion.li>
+              <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2, duration: 0.3 }} onClick={onClose}>
+                <ActionLink href={LINKEDIN_URL} label={t("linkedin")} icon="linkedin" variant="ghost" /></motion.li>
+              <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.25, duration: 0.3 }}>
+                <Link href={localizedPath} className="mobile-menu__item" onClick={onClose}>
+                  <Icon name="language" title={t("languageSwitchTo")} sizeClass="icon-sm" />
+                  <span>{t("languageSwitchTo")}</span>
+                </Link>
+              </motion.li>
+              <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.3 }}>
+                <div className="mobile-menu__item" onClick={onClose}>
+                  <DarkModeToggle ariaLabel={t("themeToggle")} />
+                  <span>{t("themeToggle")}</span>
+                </div>
+              </motion.li>
             </motion.ul>
           </motion.nav>
         </>
@@ -131,13 +92,9 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -166,50 +123,44 @@ export default function Header() {
             </div>
 
             <nav id="header-nav" className="header-nav">
-              <div className="header-network">
-                <ul className="header-network__list">
+              <ul className="header-network__list">
+                {messagingEnabled && (
                   <li className="header-network__item">
-                    {messagingEnabled ? (
-                      <button
-                        type="button"
-                        className="header-network__trigger"
-                        onClick={() => setIsMessagingOpen(true)}
-                        aria-label={t("message")}
-                      >
-                        <Icon name="message" title="Message" sizeClass="icon-sm" className="header-network__icon" />
-                        <span className="header-network__user-active">{t("message")}</span>
-                      </button>
-                    ) : (
-                      <>
-                        <Icon name="message" title="Message" sizeClass="icon-sm" className="header-network__icon" />
-                        <span className="header-network__user-active">{t("message")}</span>
-                      </>
-                    )}
-                  </li>
-                  <li className="header-network__item">
-                    <DarkModeToggle ariaLabel={t("themeToggle")} />
-                  </li>
-                  <li className="header-network__item">
-                    <Link
-                      href={GITHUB_PROFILE_URL}
-                      className="btn btn-primary"
-                      aria-label={t("github")}
-                      target="_blank"
-                      rel="noreferrer"
+                    <button
+                      type="button"
+                      className="header-network__trigger"
+                      onClick={() => setIsMessagingOpen(true)}
+                      aria-label={t("message")}
                     >
-                      <Icon name="github" title={t("github")} sizeClass="icon-sm" className="header-network__icon" />
-                    </Link>
+                      <Icon name="message" title={t("message")} sizeClass="icon-sm" className="header-network__icon" />
+                      <span className="header-network__user-active">{t("message")}</span>
+                    </button>
                   </li>
-                  <li className="header-network__item">
-                    <Link href={localizedPath} className="btn btn-primary" aria-label={t("languageSwitchTo")}>
-                      <Icon name="language" title={t("language")} sizeClass="icon-sm" className="header-network__icon" />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+                )}
+                <li className="header-network__item">
+                  <DarkModeToggle ariaLabel={t("themeToggle")} />
+                </li>
+                <li className="header-network__item">
+                  <ActionLink href={GITHUB_URL} label={t("github")} ariaLabel={t("github")} icon="github" variant="ghost" size="sm" />
+                </li>
+                <li className="header-network__item">
+                  <ActionLink href={LINKEDIN_URL} label={t("linkedin")} ariaLabel={t("linkedin")} icon="linkedin" variant="ghost" size="sm" />
+                </li>
+                <li className="header-network__item">
+                  <Link href={localizedPath} className="btn btn-primary btn-sm" aria-label={t("languageSwitchTo")}>
+                    <Icon name="language" title={t("language")} sizeClass="icon-sm" className="header-network__icon" />
+                  </Link>
+                </li>
+              </ul>
             </nav>
 
-            <button type="button" className="hamburger-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}>
+            <button
+              type="button"
+              className="hamburger-btn"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
+            >
               <span className={isMobileMenuOpen ? "hamburger-line open" : "hamburger-line"} />
               <span className={isMobileMenuOpen ? "hamburger-line open" : "hamburger-line"} />
               <span className={isMobileMenuOpen ? "hamburger-line open" : "hamburger-line"} />
@@ -223,6 +174,7 @@ export default function Header() {
         onClose={() => setIsMobileMenuOpen(false)}
         isMessagingEnabled={messagingEnabled}
         onOpenMessaging={() => setIsMessagingOpen(true)}
+        localizedPath={localizedPath}
       />
       <MessagingModal isOpen={isMessagingOpen} onClose={() => setIsMessagingOpen(false)} />
     </>
