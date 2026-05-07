@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 
-import { messagingConversationIdSchema } from "@/features/messaging";
-import { getAdminThread } from "@/features/messaging/services/messaging.server";
-import { requireAdminSession } from "@lib/supabase/auth";
+import { messagingConversationIdSchema } from "../../../../../features/messaging";
+import { getAdminThread } from "../../../../../features/messaging/services/messaging.server";
+import { requireAdminSession } from "../../../../../../lib/supabase/auth";
 
 export async function GET(
     _request: Request,

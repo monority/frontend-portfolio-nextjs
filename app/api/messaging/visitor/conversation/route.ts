@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 
-import { messagingConversationSchema } from "@/features/messaging";
-import { startVisitorConversation } from "@/features/messaging/services/messaging.server";
-import { MESSAGING_RESUME_COOKIE_NAME } from "@lib/supabase/utils";
+import { messagingConversationSchema } from "../../../../features/messaging";
+import { startVisitorConversation } from "../../../../features/messaging/services/messaging.server";
+import { MESSAGING_RESUME_COOKIE_NAME } from "../../../../../lib/supabase/utils";
 
 function buildResumeCookie(value: string) {
     return {

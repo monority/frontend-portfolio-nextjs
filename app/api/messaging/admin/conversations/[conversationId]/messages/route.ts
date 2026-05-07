@@ -3,9 +3,9 @@ import { NextResponse } from "next/server";
 import {
     messagingConversationIdSchema,
     messagingPostMessageSchema,
-} from "@/features/messaging";
-import { addAdminMessage } from "@/features/messaging/services/messaging.server";
-import { requireAdminSession } from "@lib/supabase/auth";
+} from "../../../../../../features/messaging";
+import { addAdminMessage } from "../../../../../../features/messaging/services/messaging.server";
+import { requireAdminSession } from "../../../../../../../lib/supabase/auth";
 
 export async function POST(
     request: Request,

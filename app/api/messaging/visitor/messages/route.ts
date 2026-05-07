@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
-import { messagingPostMessageSchema } from "@/features/messaging";
-import { addVisitorMessage } from "@/features/messaging/services/messaging.server";
-import { MESSAGING_RESUME_COOKIE_NAME } from "@lib/supabase/utils";
+import { messagingPostMessageSchema } from "../../../../features/messaging";
+import { addVisitorMessage } from "../../../../features/messaging/services/messaging.server";
+import { MESSAGING_RESUME_COOKIE_NAME } from "../../../../../lib/supabase/utils";
 
 export async function POST(request: Request) {
     const cookieStore = await cookies();

@@ -1,19 +1,19 @@
 import "server-only";
 
-import { createSupabaseAdminClient } from "@lib/supabase/auth";
+import { createSupabaseAdminClient } from "../../../../lib/supabase/auth";
 import {
     createMessagingResumeToken,
     getMessagingPreview,
     hashMessagingResumeToken,
     normalizeMessagingBody,
     normalizeMessagingUsername,
-} from "@lib/supabase/utils";
+} from "../../../../lib/supabase/utils";
 import type {
     MessagingConversationStatus,
     MessagingConversationSummary,
     MessagingMessage,
     MessagingThread,
-} from "@shared-types";
+} from "../../../../types";
 
 type MessagingConversationRow = {
     id: string;
