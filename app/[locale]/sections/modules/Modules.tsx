@@ -1,33 +1,19 @@
 'use client'
 
-import { motion } from "framer-motion"
+import Image from "next/image"
 import { useLocale } from "next-intl"
-import type { Module } from "../../../../types/index"
-import type { IconName } from "@/components/ui/icon/types"
-import { SectionEyebrow, SectionHeader } from "@/components/ui/section"
-import {
-    sectionFadeUp,
-    sectionStagger,
-    sectionViewport,
-} from "@/components/ui/section/motion"
-import Badge from "@/components/ui/badge"
+import type { Module } from "@shared-types"
+import type { IconName } from "@shared-types/icons"
+import { SectionIntro, SectionShell } from "@/components/ui/section"
 import Button from "@/components/ui/button"
 import Icon from "@/components/ui/icon/Icon"
-import { MODULE_ICON_BY_ID, MODULES, MODULES_COPY, MODULE_TECH_ICON_BY_LABEL } from "@constants/modules.data"
+import { MODULES, MODULES_CONTENT, MODULE_TECH_ICON_BY_LABEL } from "./data"
 import { useTheme } from "@/components/ThemeProvider"
-import { getPanelThemeStyle } from "../shared/panelTheme"
-import { getShowcasePickerTransition, ShowcasePanel, useActiveShowcaseItem } from "../shared/showcase"
+import { openExternalUrl } from "../shared/openExternalUrl"
+import { getSectionThemeStyle } from "../shared/panelTheme"
+import { ShowcaseListCard, ShowcasePanel, ShowcasePicker, ShowcasePickerItem, ShowcaseTechCard, useActiveShowcaseItem } from "../shared/showcase"
 
 import "./modules.css"
-
-function getModuleIcon(module: Module): IconName {
-    return MODULE_ICON_BY_ID[module.id] ?? "arrowRight"
-}
-
-function openExternalUrl(url?: string) {
-    if (!url) return
-    window.open(url, "_blank", "noopener,noreferrer")
-}
 
 function getTechIcon(tech: string): IconName | null {
     return MODULE_TECH_ICON_BY_LABEL[tech.trim().toLowerCase()] ?? null
@@ -37,84 +23,70 @@ export default function Modules() {
     const locale = useLocale() as "fr" | "en"
     const { resolvedTheme } = useTheme()
     const { activeId, setActiveId, activeItem: activeModule } = useActiveShowcaseItem(MODULES)
-    const copy = MODULES_COPY[locale]
+    const content = MODULES_CONTENT[locale]
 
     return (
-        <section className="modules" id="modules">
-            <div className="modules-shell">
-                <motion.div
-                    className="modules-header"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={sectionViewport}
-                    variants={sectionFadeUp}
-                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                >
-                    <SectionEyebrow number="04" label={copy.sectionLabel} />
-                    <SectionHeader
-                        title={copy.heading}
-                        intro={copy.intro}
-                        titleClassName="modules-title"
-                        introClassName="modules-intro"
-                    />
-                </motion.div>
+        <SectionShell id="modules" className="modules">
+            <SectionIntro
+                number="04"
+                label={content.sectionLabel}
+                title={content.heading}
+                intro={content.intro}
+            />
 
-                <motion.div
-                    className="modules-picker"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={sectionViewport}
-                    variants={sectionStagger}
-                >
-                    {MODULES.map((module, index) => (
-                        <motion.button
-                            key={module.id}
+            <ShowcasePicker className="modules-picker">
+                {MODULES.map((module, index) => (
+                    <ShowcasePickerItem key={module.id} index={index}>
+                        <button
                             type="button"
                             className={`modules-picker__item${activeId === module.id ? " modules-picker__item--active" : ""}`}
                             onClick={() => setActiveId(module.id)}
                             aria-pressed={activeId === module.id}
                             aria-label={module.titleDisplay}
-                            style={activeId === module.id ? getPanelThemeStyle(module, resolvedTheme) : undefined}
-                            variants={sectionFadeUp}
-                            transition={getShowcasePickerTransition(index)}
+                            style={activeId === module.id ? getSectionThemeStyle(module, { resolvedTheme }) : undefined}
                         >
-                            <span className="modules-picker__icon">
-                                <Icon name={getModuleIcon(module)} sizeClass="icon-sm" aria-hidden="true" />
-                            </span>
+                            <Image
+                                className="modules-picker__image"
+                                src={`/images/modules/${module.id}.svg`}
+                                alt=""
+                                width={96}
+                                height={96}
+                                aria-hidden="true"
+                            />
                             <span className="modules-picker__copy">
                                 <span className="modules-picker__name">{module.titleDisplay}</span>
                                 <span className="modules-picker__meta">{module.category[locale]}</span>
                             </span>
-                        </motion.button>
-                    ))}
-                </motion.div>
+                        </button>
+                    </ShowcasePickerItem>
+                ))}
+            </ShowcasePicker>
 
-                <ModulePanel module={activeModule} locale={locale} copy={copy} resolvedTheme={resolvedTheme} />
-            </div>
-        </section>
+            <ModulePanel module={activeModule} locale={locale} content={content} resolvedTheme={resolvedTheme} />
+        </SectionShell>
     )
 }
 
 function ModulePanel({
     module,
     locale,
-    copy,
+    content,
     resolvedTheme,
 }: {
     module: Module
     locale: "fr" | "en"
-    copy: (typeof MODULES_COPY)["fr"]
+    content: (typeof MODULES_CONTENT)["fr"]
     resolvedTheme: "light" | "dark"
 }) {
     return (
         <ShowcasePanel
             panelKey={module.id}
             className="module-panel panel-container"
-            style={getPanelThemeStyle(module, resolvedTheme)}
+            style={getSectionThemeStyle(module, { resolvedTheme })}
         >
             <div className="panel-ambient" aria-hidden="true" />
 
-            <article className="module-panel__card module-panel__hero panel-card">
+            <article className="module-panel__hero panel-card">
                 <div className="panel-hero-top">
                     <div className="panel-hero-copy">
                         <span className="module-panel__kicker">{module.category[locale]}</span>
@@ -124,7 +96,7 @@ function ModulePanel({
                     <div className="panel-meta">
                         <span>{module.year}</span>
                         <span className="panel-meta-dot" aria-hidden="true" />
-                        <span>{copy.miniLabel}</span>
+                        <span>{content.miniLabel}</span>
                     </div>
                 </div>
 
@@ -139,7 +111,7 @@ function ModulePanel({
                                 onClick={() => openExternalUrl(module.live)}
                                 rightIcon={<Icon name="arrowRight" sizeClass="icon-sm" aria-hidden="true" />}
                             >
-                                {copy.live}
+                                {content.live}
                             </Button>
                         )}
                         {module.github && (
@@ -148,7 +120,7 @@ function ModulePanel({
                                 onClick={() => openExternalUrl(module.github)}
                                 leftIcon={<Icon name="github" sizeClass="icon-sm" aria-hidden="true" />}
                             >
-                                {copy.github}
+                                {content.github}
                             </Button>
                         )}
                         {module.npm && (
@@ -157,44 +129,30 @@ function ModulePanel({
                                 onClick={() => openExternalUrl(module.npm)}
                                 leftIcon={<Icon name="npm" sizeClass="icon-sm" aria-hidden="true" />}
                             >
-                                {copy.npm}
+                                {content.npm}
                             </Button>
                         )}
                     </div>
                 )}
             </article>
 
-            <article className="module-panel__card panel-card">
-                <span className="panel-label">{copy.highlights}</span>
-                <ul className="panel-list">
-                    {module.highlights.map((highlight) => (
-                        <li key={highlight[locale]} className="panel-list-item">
-                            <span className="panel-list-bullet module-panel__highlight-bullet" aria-hidden="true" />
-                            <span>{highlight[locale]}</span>
-                        </li>
-                    ))}
-                </ul>
-            </article>
+            <ShowcaseListCard
+                label={content.highlights}
+                items={module.highlights.map((highlight) => ({
+                    key: highlight[locale],
+                    content: highlight[locale],
+                }))}
+            />
 
-            <article className="module-panel__card panel-card">
-                <span className="panel-label">{copy.stack}</span>
-                <div className="panel-tech">
-                    {module.tech.map((tech) => {
-                        const techIcon = getTechIcon(tech)
+            <ShowcaseTechCard
+                label={content.stack}
+                items={module.tech}
+                renderIcon={(tech) => {
+                    const techIcon = getTechIcon(tech)
 
-                        return (
-                            <Badge
-                                key={tech}
-                                variant="outline"
-                                size="sm"
-                                icon={techIcon ? <Icon name={techIcon} sizeClass="icon-sm" aria-hidden="true" /> : undefined}
-                            >
-                                {tech}
-                            </Badge>
-                        )
-                    })}
-                </div>
-            </article>
+                    return techIcon ? <Icon name={techIcon} sizeClass="icon-sm" aria-hidden="true" /> : undefined
+                }}
+            />
         </ShowcasePanel>
     )
 }

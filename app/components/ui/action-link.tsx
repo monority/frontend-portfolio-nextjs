@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { memo } from 'react'
 import { Icon } from '@/components/ui/icon'
-import type { IconName } from '@/components/ui/icon/types'
+import type { IconName } from '@shared-types/icons'
 import './action-link.css'
 
 type ActionLinkVariant = 'solid' | 'ghost'

@@ -5,7 +5,7 @@ import {
     messagingPostMessageSchema,
 } from "@/features/messaging";
 import { addAdminMessage } from "@/features/messaging/services/messaging.server";
-import { requireAdminSession } from "../../../../../../../lib/supabase/auth";
+import { requireAdminSession } from "@lib/supabase/auth";
 
 export async function POST(
     request: Request,

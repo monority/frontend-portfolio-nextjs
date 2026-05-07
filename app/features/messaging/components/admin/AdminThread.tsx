@@ -2,7 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 
-import type { MessagingThread } from "../../../../../types/index";
+import type { MessagingThread } from "@shared-types";
 import MessageBubble from "../shared/MessageBubble";
 
 interface AdminThreadProps {

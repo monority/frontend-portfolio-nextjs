@@ -2,12 +2,6 @@
 
 /* ─── Creation Specific Styles ───────────────────────────────────────── */
 
-.creation-shell {
-    display: grid;
-    gap: var(--space-xl);
-    padding-block: var(--space-xl);
-}
-
 .creation-stage {
     display: grid;
     grid-template-columns: minmax(240px, 0.42fr) minmax(0, 1fr);
@@ -70,13 +64,13 @@
 }
 
 .creation-picker__item--active {
-    border-color: var(--module-accent-border-strong, color-mix(in srgb, var(--module-accent, var(--foreground)) 26%, var(--border)));
+    border-color: var(--section-accent-border-strong, color-mix(in srgb, var(--section-accent, var(--foreground)) 26%, var(--border)));
     background:
-        linear-gradient(135deg, var(--module-accent-wash, color-mix(in srgb, var(--module-accent, var(--foreground)) 6%, transparent)), transparent 60%),
+        linear-gradient(135deg, var(--section-accent-wash, color-mix(in srgb, var(--section-accent, var(--foreground)) 6%, transparent)), transparent 60%),
         color-mix(in srgb, var(--card) 94%, transparent);
     box-shadow:
-        inset 0 0 0 1px var(--module-accent-border, color-mix(in srgb, var(--module-accent, var(--foreground)) 10%, transparent)),
-        0 14px 28px var(--module-accent-glow, color-mix(in srgb, var(--module-accent, var(--foreground)) 6%, transparent));
+        inset 0 0 0 1px var(--section-accent-border, color-mix(in srgb, var(--section-accent, var(--foreground)) 10%, transparent)),
+        0 14px 28px var(--section-accent-glow, color-mix(in srgb, var(--section-accent, var(--foreground)) 6%, transparent));
 }
 
 .creation-picker__label {
@@ -125,21 +119,8 @@
     display: grid;
     gap: var(--space-md);
     background:
-        linear-gradient(155deg, color-mix(in srgb, var(--module-surface) 88%, transparent), color-mix(in srgb, var(--module-bg) 88%, transparent)),
-        radial-gradient(circle at top left, color-mix(in srgb, var(--module-accent) 14%, transparent), transparent 42%);
-}
-
-.creation-panel__hero-frame {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.creation-panel__hero-code {
-    font-family: var(--font-family-mono);
-    font-size: clamp(0.7rem, 0.62rem + 0.2vw, 0.8rem);
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: color-mix(in srgb, var(--module-accent) 74%, var(--text-secondary));
+        linear-gradient(155deg, color-mix(in srgb, var(--section-surface) 88%, transparent), color-mix(in srgb, var(--section-bg) 88%, transparent)),
+        radial-gradient(circle at top left, color-mix(in srgb, var(--section-accent) 14%, transparent), transparent 42%);
 }
 
 /* Typography overrides */
@@ -164,14 +145,13 @@
 /* Accent card override */
 .creation-panel__card--accent {
     background:
-        linear-gradient(180deg, color-mix(in srgb, var(--module-accent) 9%, transparent), transparent 65%),
-        var(--module-surface-fill);
+        linear-gradient(180deg, color-mix(in srgb, var(--section-accent) 9%, transparent), transparent 65%),
+        var(--section-surface-fill);
 }
-
-
 
 .creation-panel__outputs-list--hero {
     margin-top: auto;
+    flex: 1 1 18rem;
 }
 
 .creation-panel__hero-footer {
@@ -182,14 +162,6 @@
     gap: var(--space-sm);
     margin-top: auto;
 }
-
-.creation-panel__outputs-list--hero {
-    flex: 1 1 18rem;
-}
-
-
-
-
 
 @media (max-width: 1024px) {
     .creation-stage {
@@ -215,7 +187,7 @@
 }
 
 @media (max-width: 640px) {
-    .creation-shell {
+    .creation .section-shell {
         gap: var(--space-lg);
     }
 

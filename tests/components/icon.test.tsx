@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 
 import Icon from '@/components/ui/icon/Icon'
-import type { IconName } from '@/components/ui/icon/types'
+import type { IconName } from '@shared-types/icons'
 
 describe('Icon', () => {
   it('renders the requested icon with accessibility metadata', () => {

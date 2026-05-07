@@ -1,2 +1,5 @@
 export { default as SectionEyebrow } from './SectionEyebrow'
 export { default as SectionHeader } from './SectionHeader'
+export { default as SectionIntro } from './SectionIntro'
+export { default as SectionShell } from './SectionShell'
+export { default as SectionSubheader } from './SectionSubheader'

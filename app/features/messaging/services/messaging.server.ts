@@ -1,19 +1,19 @@
 import "server-only";
 
-import { createSupabaseAdminClient } from "../../../../lib/supabase/auth";
+import { createSupabaseAdminClient } from "@lib/supabase/auth";
 import {
     createMessagingResumeToken,
     getMessagingPreview,
     hashMessagingResumeToken,
     normalizeMessagingBody,
     normalizeMessagingUsername,
-} from "../../../../lib/supabase/utils";
+} from "@lib/supabase/utils";
 import type {
     MessagingConversationStatus,
     MessagingConversationSummary,
     MessagingMessage,
     MessagingThread,
-} from "../../../../types";
+} from "@shared-types";
 
 type MessagingConversationRow = {
     id: string;
@@ -187,7 +187,7 @@ export async function startVisitorConversation({
     const activeConversation = await updateConversationActivity(
         conversation.id,
         insertedMessage.body,
-        insertedMessage.createdAt,
+        insertedMessage.created_at,
     );
 
     return {
@@ -232,7 +232,7 @@ export async function addVisitorMessage(token: string, message: string) {
     const activeConversation = await updateConversationActivity(
         conversation.id,
         insertedMessage.body,
-        insertedMessage.createdAt,
+        insertedMessage.created_at,
     );
 
     return {
@@ -285,7 +285,7 @@ export async function addAdminMessage(conversationId: string, message: string) {
     await updateConversationActivity(
         conversationId,
         insertedMessage.body,
-        insertedMessage.createdAt,
+        insertedMessage.created_at,
     );
 
     return getAdminThread(conversationId);

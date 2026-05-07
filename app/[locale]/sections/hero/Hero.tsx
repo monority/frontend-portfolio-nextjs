@@ -1,62 +1,155 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import Badge from "@/components/ui/badge";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import ActionLink from "@/components/ui/action-link";
 import { Icon } from "@/components/ui/icon";
-import LocalTime from "@/components/utils/LocalTime";
+import { sectionFadeUp, sectionStagger } from "@/components/ui/section/motion";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const heroEase = [0.16, 1, 0.3, 1] as const;
+
+// Option A: per-character animation variants
+const charVariants = {
+    hidden: { opacity: 0, y: 16, filter: "blur(4px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
+
+const wordContainer = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.04, delayChildren: 0.05 } },
+};
+
+function AnimatedTitle({ text }: { text: string }) {
+    const words = text.split(" ");
+    return (
+        <h1 className="hero-header__job heading-title" aria-label={text}>
+            {words.map((word, wi) => (
+                <span key={wi} style={{ display: "block" }}>
+                    <motion.span
+                        variants={wordContainer}
+                        initial="hidden"
+                        animate="visible"
+                        aria-hidden="true"
+                        style={{ display: "inline-block" }}
+                    >
+                        {word.split("").map((char, ci) => (
+                            <motion.span
+                                key={ci}
+                                className="hero-title__char"
+                                variants={charVariants}
+                                transition={{ duration: 0.45, ease: heroEase }}
+                                style={{ display: "inline-block" }}
+                            >
+                                {char}
+                            </motion.span>
+                        ))}
+                    </motion.span>
+                </span>
+            ))}
+        </h1>
+    );
+}
 
 export default function Hero() {
     const t = useTranslations("hero");
+    const avatarParallaxRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.to(avatarParallaxRef.current, {
+                y: -40,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true,
+                },
+            });
+        });
+        return () => ctx.revert();
+    }, []);
 
     return (
-        <section id="hero">
-            <div className="hero-shell">
-                <div className="hero-layout">
-                    <div className="hero-header">
+        <section
+            className="hero"
+            id="hero"
+        >
+            <div className="hero-shell" style={{ position: "relative", zIndex: 1 }}>
+                <motion.div
+                    className="hero-layout"
+                    variants={sectionStagger}
+                    initial="hidden"
+                    animate="visible"
+                >
+                    <motion.div
+                        className="hero-header"
+                        variants={sectionFadeUp}
+                        transition={{ duration: 0.7, ease: heroEase }}
+                    >
                         <div className="hero-header__titles">
-                            <h1 className="hero-header__job heading-title">
-                                {t("role").split(" ").map((word, index) => (
-                                    <span key={`${word}-${index}`}>
-                                        {index > 0 ? <br /> : null}
-                                        {word}
-                                    </span>
-                                ))}
-                            </h1>
+                            <AnimatedTitle text={t("role")} />
                         </div>
                         <div className="hero-header__legend">
-                            <div className="hero-header__avatar">
-                                <Image
-                                    src="/images/avatar.webp"
-                                    alt={t("imageAlt")}
-                                    width={720}
-                                    height={960}
-                                    className="hero-header__image"
-                                    priority
-                                />
+                            <div ref={avatarParallaxRef}>
+                                <motion.div
+                                    className="hero-header__avatar"
+                                    initial={{ clipPath: "inset(100% 0 0 0 round 2.4rem)" }}
+                                    animate={{ clipPath: "inset(0% 0 0 0 round 2.4rem)" }}
+                                    transition={{ duration: 0.9, ease: heroEase, delay: 0.4 }}
+                                    whileHover={{ scale: 1.02 }}
+                                >
+                                    <Image
+                                        src="/images/avatar.webp"
+                                        alt={t("imageAlt")}
+                                        width={720}
+                                        height={960}
+                                        className="hero-header__image"
+                                        priority
+                                    />
+                                </motion.div>
                             </div>
-                            <div className="hero-header__tech">
-                                <Badge size="sm"><Icon name="react" /><span>React</span></Badge>
-                                <Badge size="sm"><Icon name="nextjs" /><span>Next.js</span></Badge>
-                                <Badge size="sm"><Icon name="node" /><span>Node.js</span></Badge>
-                                <Badge size="sm"><Icon name="dotnet" /><span>.NET</span></Badge>
-                                <Badge size="sm"><Icon name="typescript" /><span>TypeScript</span></Badge>
-                            </div>
+                            <span className="hero-header__caption">{t("avatarCaption")}</span>
                         </div>
-                    </div>
-                    <div className="hero__description">
+                    </motion.div>
+                    <motion.div
+                        className="hero__description"
+                        variants={sectionFadeUp}
+                        transition={{ duration: 0.65, ease: heroEase }}
+                    >
                         <h2>{t("name")}</h2>
                         <p className="hero__description-text">{t("description")}</p>
-                    </div>
-                    <div className="hero__city">
+                    </motion.div>
+                    <motion.div
+                        className="hero__city"
+                        variants={sectionFadeUp}
+                        transition={{ duration: 0.6, ease: heroEase }}
+                    >
                         <Icon name="location" sizeClass="icon-sm" />
                         <span className="hero__text-muted">{t("city")}</span>
-                    </div>
-                    <div className="hero__availability">
+                    </motion.div>
+                    <motion.div
+                        className="hero__availability"
+                        variants={sectionFadeUp}
+                        transition={{ duration: 0.6, ease: heroEase }}
+                    >
                         <span className="hero__availability-dot" aria-hidden="true" />
                         <p className="hero__text-muted">{t("availability")}</p>
-                    </div>
-                </div>
+                    </motion.div>
+                    <motion.div
+                        className="hero__cta"
+                        variants={sectionFadeUp}
+                        transition={{ duration: 0.55, ease: heroEase }}
+                    >
+                        <ActionLink href="#projects" label={t("cta")} variant="solid" size="md" />
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );

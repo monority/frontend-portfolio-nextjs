@@ -7,7 +7,7 @@ import type {
     MessagingAdminSession,
     MessagingConversationSummary,
     MessagingThread,
-} from "../../../../types/index";
+} from "@shared-types";
 import { getApiErrorMessage, readJsonResponse } from "../http";
 
 export function useAdminConversations(session: MessagingAdminSession | null) {

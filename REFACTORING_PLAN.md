@@ -1,5 +1,9 @@
 # Plan de Refactorisation - Portfolio Next.js
 
+> Statut : archive historique.
+> Référence actuelle : `refactor-structure.md`.
+> Ce document garde ancien déroulé de travail, mais baseline structurelle 2026 vit dans `refactor-structure.md`.
+
 ## Vue d'ensemble
 
 Projet : Portfolio Ronan Chenu (Creative Developer)
@@ -58,7 +62,7 @@ Tech stack : Next.js 16, React 19, Framer Motion, CSS Modules (PostCSS)
 
 | # | Action | Fichier | Status |
 |---|--------|--------|--------|
-| 2.2.1 | Déplacer `marqueeItems` vers constants | `constants/data.ts` | ✅ |
+| 2.2.1 | Déplacer `marqueeItems` près section About | `app/[locale]/sections/about/data.ts` | ✅ |
 | 2.2.2 | Mettre à jour About.tsx | `About.tsx` | ✅ |
 
 ### 2.3 Optimisations
@@ -121,7 +125,7 @@ Les changements seront aplicados composant par composant :
 
 ### Composants
 - ✅Nouveau hook `useSectionAnimations()` dans `app/hooks/useSectionAnimations.ts`
-- ✅ `constants/data.ts` - ajouté `MARQUEE_ITEMS` externalisé
+- ✅ `app/[locale]/sections/about/data.ts` - `MARQUEE_ITEMS` now colocated with About section
 - ✅ `About.tsx` - utilise `MARQUEE_ITEMS` depuis constants
 - ✅ `ActionLink` - ajouté `React.memo`
 - ✅ `button.css` - `.btn-tech` + `font-family-mono`

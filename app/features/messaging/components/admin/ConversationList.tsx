@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 
-import type { MessagingConversationSummary } from "../../../../../types/index";
+import type { MessagingConversationSummary } from "@shared-types";
 import ConversationItem from "./ConversationItem";
 
 interface ConversationListProps {

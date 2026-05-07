@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { messagingConversationSchema } from "@/features/messaging";
 import { startVisitorConversation } from "@/features/messaging/services/messaging.server";
-import { MESSAGING_RESUME_COOKIE_NAME } from "../../../../../lib/supabase/utils";
+import { MESSAGING_RESUME_COOKIE_NAME } from "@lib/supabase/utils";
 
 function buildResumeCookie(value: string) {
     return {
@@ -12,7 +12,7 @@ function buildResumeCookie(value: string) {
         maxAge: 60 * 60 * 24 * 30,
         path: "/",
         sameSite: "lax" as const,
-        secure: process.env.NODE_ENV === "production",
+        secure: true,
     };
 }
 

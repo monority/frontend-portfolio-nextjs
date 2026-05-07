@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
 import { getVisitorThreadByToken } from "@/features/messaging/services/messaging.server";
-import { MESSAGING_RESUME_COOKIE_NAME } from "../../../../../lib/supabase/utils";
+import { MESSAGING_RESUME_COOKIE_NAME } from "@lib/supabase/utils";
 
 export async function GET() {
     const cookieStore = await cookies();

@@ -5,29 +5,22 @@
       "avatarAlt": "Portrait of Ronan",
       "homeLabel": "Back to home"
     },
-    "available": "Available for new projects",
     "message": "message",
     "themeToggle": "Toggle theme",
     "github": "View GitHub profile",
+    "linkedin": "View LinkedIn profile",
     "language": "Change language",
-    "languageLabel": "EN",
-    "languageTarget": "FR",
-    "languageSwitchTo": "Switch site to French",
-    "nav": {
-      "about": "home",
-      "tech": "tech",
-      "projects": "projects",
-      "contact": "contact"
-    }
+    "languageSwitchTo": "Switch site to French"
   },
   "hero": {
     "name": "Ronan Chenu",
-    "role": "Creative Developer",
-    "meta": "Lille | 3 yrs | Full-Stack",
+    "role": "Fullstack Developer",
     "imageAlt": "Editorial portrait of Ronan",
-    "description": "Performant, clean and responsive application",
+    "description": "Building fast, clean and maintainable web interfaces",
     "city": "Based in Lille, France",
-    "availability": "Available for CDI / CDD / Remote, Freelance"
+    "availability": "Available for CDI / CDD / Remote, Freelance",
+    "cta": "See my work",
+    "avatarCaption": "Curious. Thorough. Creative."
   },
   "localTime": {
     "loadingCity": "Finding city...",
@@ -46,7 +39,6 @@
       "locationLabel": "CDI / Freelance"
     },
     "tech": {
-      "title": "Tech",
       "frontend": "Frontend",
       "backend": "Backend",
       "hosting": "Hosting",
@@ -102,7 +94,7 @@
     }
   },
   "footer": {
-    "tagline": "Building clean, performant and user-cented web interfaces.",
+    "tagline": "Building clean, performant and user-centered web interfaces.",
     "availability": "Available for new projects",
     "navLabel": "Page navigation",
     "navHeading": "Navigate",

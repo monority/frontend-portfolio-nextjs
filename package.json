@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "postinstall": "node scripts/patch-cqc.mjs",
+    "quality": "node scripts/run-cqc.mjs fast",
+    "quality:full": "node scripts/run-cqc.mjs full",
     "test": "npm run test:content && npm run test:unit",
     "test:content": "node --test tests/**/*.test.mjs",
     "test:unit": "vitest run"
@@ -31,6 +34,7 @@
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "commit-quality-check": "^1.0.18",
     "eslint": "^9",
     "eslint-config-next": "^16",
     "jsdom": "^29.1.0",
@@ -38,6 +42,11 @@
     "postcss-preset-env": "^11.2.1",
     "typescript": "^6",
     "vitest": "^4.1.5"
+  },
+  "gitQuality": {
+    "skip": [
+      "Playwright Tests"
+    ]
   },
   "overrides": {
     "next": {

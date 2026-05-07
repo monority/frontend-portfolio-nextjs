@@ -1,4 +1,4 @@
-import type { MessagingSenderRole } from "../../../../../types/index";
+import type { MessagingSenderRole } from "@shared-types";
 
 import "./shared.css";
 

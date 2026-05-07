@@ -2,15 +2,6 @@
 @import "./projects-gallery.css";
 @import "./projects-modal.css";
 
-
-.projects-shell {
-    display: grid;
-    gap: var(--space-xl);
-}
-
-
-
-
 .projects-picker {
     display: flex;
     flex-direction: column;
@@ -57,8 +48,8 @@
 }
 
 .projects-picker__item--active .projects-picker__thumb {
-    border-color: var(--project-accent, var(--foreground));
-    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08), inset 0 0 0 3px var(--project-accent, var(--foreground)), 0 14px 30px color-mix(in srgb, var(--project-accent, var(--foreground)) 22%, rgb(0 0 0 / 0.18));
+    border-color: var(--section-accent, var(--foreground));
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08), inset 0 0 0 3px var(--section-accent, var(--foreground)), 0 14px 30px color-mix(in srgb, var(--section-accent, var(--foreground)) 22%, rgb(0 0 0 / 0.18));
     transform: translateY(-2px);
 }
 
@@ -104,35 +95,17 @@
     max-width: 100%;
 }
 
-.projects-picker__icon {
-    flex-shrink: 0;
-    color: var(--project-accent, var(--text-secondary));
-    opacity: 0.9;
-    transition: color var(--transition-fast), transform var(--transition-fast), opacity var(--transition-fast);
-}
-
 .projects-picker__item--active .projects-picker__name {
     color: var(--foreground);
 }
 
-.projects-picker__item:hover .projects-picker__icon,
-.projects-picker__item--active .projects-picker__icon {
-    color: var(--project-accent, var(--foreground));
-    opacity: 1;
-    transform: translateY(-1px);
-}
-
-.projects-picker__item--active .projects-picker__icon {
-    display: none;
-}
-
 .project-bento {
-    --project-accent: var(--foreground);
-    --project-bg: var(--background);
-    --project-surface: var(--card);
-    --project-fg: var(--foreground);
-    --project-accent-soft: color-mix(in srgb, var(--project-accent) 24%, transparent);
-    --project-accent-strong: color-mix(in srgb, var(--project-accent) 72%, white 28%);
+    --section-accent: var(--foreground);
+    --section-bg: var(--background);
+    --section-surface: var(--card);
+    --section-fg: var(--foreground);
+    --section-accent-soft: color-mix(in srgb, var(--section-accent) 24%, transparent);
+    --section-accent-strong: color-mix(in srgb, var(--section-accent) 72%, white 28%);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 260px 200px auto;
@@ -143,61 +116,6 @@
 
 .project-bento>* {
     min-width: 0;
-}
-
-.project-bento__ambient {
-    display: none;
-}
-
-.project-bento__ambient-blob {
-    position: absolute;
-    border-radius: 999px;
-    mix-blend-mode: screen;
-    will-change: transform;
-}
-
-.project-bento__ambient--1 .project-bento__ambient-blob--one,
-.project-bento__ambient--2 .project-bento__ambient-blob--one,
-.project-bento__ambient--3 .project-bento__ambient-blob--one {
-    width: 9rem;
-    height: 9rem;
-    top: 1rem;
-    left: 12%;
-    background: color-mix(in srgb, var(--project-fg) 18%, transparent);
-    animation: project-ambient-drift-one 10s ease-in-out infinite;
-}
-
-.project-bento__ambient--1 .project-bento__ambient-blob--two,
-.project-bento__ambient--2 .project-bento__ambient-blob--two,
-.project-bento__ambient--3 .project-bento__ambient-blob--two {
-    width: 12rem;
-    height: 12rem;
-    top: 2.4rem;
-    right: 18%;
-    background: color-mix(in srgb, var(--project-accent, var(--foreground)) 32%, transparent);
-    animation: project-ambient-drift-two 12s ease-in-out infinite;
-}
-
-.project-bento__ambient--1 .project-bento__ambient-blob--three,
-.project-bento__ambient--2 .project-bento__ambient-blob--three,
-.project-bento__ambient--3 .project-bento__ambient-blob--three {
-    width: 7rem;
-    height: 7rem;
-    bottom: 1rem;
-    left: 44%;
-    background: color-mix(in srgb, var(--project-accent-strong) 14%, transparent);
-    animation: project-ambient-drift-three 9s ease-in-out infinite;
-}
-
-.project-bento__visual {
-    grid-area: hero;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
 }
 
 .project-bento__card {
@@ -343,34 +261,6 @@
     text-transform: capitalize;
 }
 
-.project-bento__check {
-    flex-shrink: 0;
-    color: var(--color-success);
-}
-
-.project-bento__open-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    align-self: flex-start;
-    margin-top: auto;
-    font-family: var(--font-family-mono);
-    font-size: var(--font-size-xs);
-    color: var(--foreground);
-    background: var(--hover);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: var(--padding-xs) var(--padding-sm);
-    text-decoration: none;
-    transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.project-bento__open-btn:hover {
-    background: var(--card-border);
-    border-color: var(--text-secondary);
-    transform: translateY(-1px);
-}
-
 .project-bento__title-card {
     grid-area: title-card;
     flex-direction: row;
@@ -445,7 +335,7 @@
 }
 
 @media (max-width: 580px) {
-    .projects-shell {
+    .projects .section-shell {
         gap: var(--space-lg);
     }
 
@@ -490,10 +380,6 @@
         min-width: 0;
     }
 
-    .project-bento__ambient {
-        display: none;
-    }
-
     .project-bento__gallery {
         min-height: 0;
     }
@@ -524,10 +410,7 @@
     }
 
     .project-bento__gallery-rail {
-        left: 0.65rem;
-        right: 0.65rem;
-        bottom: 3.95rem;
-        max-width: none;
+        display: none;
     }
 
     .project-bento__swatches {
@@ -535,10 +418,6 @@
         flex-direction: column;
         gap: var(--space-md);
 
-    }
-
-    .project-bento__swatch--flask {
-        min-height: 6.5rem;
     }
 
     .project-bento__swatch-name {

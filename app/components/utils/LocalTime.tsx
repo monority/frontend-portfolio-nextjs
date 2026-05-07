@@ -20,12 +20,18 @@ type CityStatus = "idle" | "loading" | "success" | "error";
 
 function formatLocalDateTime(date: Date, locale: string, timeZone?: string) {
     try {
-        const day = new Intl.DateTimeFormat(locale, {
-            weekday: "long",
+        const weekday = new Intl.DateTimeFormat(locale, {
+            weekday: "short",
+            timeZone,
+        }).format(date);
+
+        const dateStr = new Intl.DateTimeFormat(locale, {
             day: "numeric",
             month: "long",
             timeZone,
         }).format(date);
+
+        const day = `${weekday} ${dateStr}`;
 
         const time = new Intl.DateTimeFormat(locale, {
             hour: "2-digit",
@@ -36,11 +42,16 @@ function formatLocalDateTime(date: Date, locale: string, timeZone?: string) {
 
         return { day, time };
     } catch {
-        const day = new Intl.DateTimeFormat(locale, {
-            weekday: "long",
+        const weekday = new Intl.DateTimeFormat(locale, {
+            weekday: "short",
+        }).format(date);
+
+        const dateStr = new Intl.DateTimeFormat(locale, {
             day: "numeric",
             month: "long",
         }).format(date);
+
+        const day = `${weekday} ${dateStr}`;
 
         const time = new Intl.DateTimeFormat(locale, {
             hour: "2-digit",
@@ -185,10 +196,9 @@ export default function LocalTime({
             <div className="local-time__body">
                 <div className="local-time__content">
                     <strong className="local-time__value">
-                        <span>{day}</span>
-                        <span> {time}</span>
+                        <span className="local-time__day">{day}</span>
+                        <span className="local-time__time"> {time} - {cityLabel}</span>
                     </strong>
-                    <span className="local-time__meta">{cityLabel}</span>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ const config = {
         'custom-properties': {
           preserve: false
         },
-        'custom-media': true,
+        'custom-media-queries': true,
         'media-query-ranges': true
       },
       insertBefore: {

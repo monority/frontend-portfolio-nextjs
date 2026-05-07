@@ -29,6 +29,32 @@
   gap: var(--space-sm);
 }
 
+.section-intro {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.section-subheader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-base);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.section-subheader__text {
+  white-space: nowrap;
+}
+
+.section-subheader__line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
 .section-header__title {
   margin: 0;
   font-size: clamp(var(--font-size-lg), 3.5vw, var(--font-size-xl));

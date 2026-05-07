@@ -21,16 +21,20 @@ vi.mock('next/image', () => ({
   default: ({
     src,
     alt,
+    fill: _fill,
     ...props
-  }: React.ImgHTMLAttributes<HTMLImageElement> & { src: string; alt: string }) => (
+  }: React.ImgHTMLAttributes<HTMLImageElement> & { src: string; alt: string; fill?: boolean }) => (
     <img src={src} alt={alt} {...props} />
   ),
 }))
 
 vi.mock('framer-motion', () => ({
   motion: {
-    article: React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
-      ({ children, ...props }, ref) => (
+    article: React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement> & {
+      whileHover?: unknown
+      transition?: unknown
+    }>(
+      ({ children, whileHover: _whileHover, transition: _transition, ...props }, ref) => (
         <article ref={ref} {...props}>
           {children}
         </article>

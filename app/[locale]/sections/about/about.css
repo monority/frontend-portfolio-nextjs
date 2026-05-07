@@ -1,9 +1,3 @@
-/* Replaced by .shell in layout.css */
-.about-shell {
-    display: grid;
-    gap: var(--space-xl);
-}
-
 .about-available__text {
     font-size: var(--font-size-md);
 }
@@ -136,41 +130,45 @@
     }
 }
 
-.about-tech {
+.about-tech-bento {
     display: grid;
-    gap: 0;
-    border-top: 1px solid var(--border);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
 }
 
-.about-tech-row {
+.about-bento-tile {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-md);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: var(--space-md);
-    padding: var(--space-sm) var(--space-xs);
-    border-bottom: 1px solid var(--border);
-    border-radius: 2px;
-    margin: 0 calc(var(--space-xs) * -1);
-    transition: background 0.15s ease;
+    gap: var(--space-sm);
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.about-tech-row:hover {
+.about-bento-tile:hover {
     background: var(--hover);
+    border-color: var(--border);
 }
 
-.about-tech-row__title {
+/* wider tiles */
+.about-bento-tile--frontend,
+.about-bento-tile--backend {
+    grid-column: span 2;
+}
+
+.about-bento-tile__title {
     margin: 0;
     font-family: var(--font-family-mono);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     font-weight: var(--font-weight-normal);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-secondary);
-    flex-shrink: 0;
-    min-width: 6rem;
 }
 
-.about-tech-row__list {
+.about-bento-tile__list {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xs);
@@ -179,8 +177,42 @@
     list-style: none;
 }
 
-.about-tech-row__item {
-    display: flex;
+/* ── Tech chips ─────────────────────────────────────────────── */
+
+.tech-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    padding: 0.3rem 0.65rem 0.3rem 0.45rem;
+    transition: opacity 0.15s ease;
+}
+
+.tech-chip--primary {
+    background: var(--card-gradient);
+    border: 1px solid var(--card-border);
+    font-weight: var(--font-weight-medium);
+    color: var(--foreground);
+}
+
+.tech-chip--secondary {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--foreground);
+}
+
+.tech-chip--familiar {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+.tech-chip:hover {
+    opacity: 1;
 }
 
 @media (min-width: 768px) {
@@ -193,7 +225,15 @@
         padding-right: var(--space-xl);
     }
 
-    .about-tech-row {
-        flex-direction: row;
+    .about-tech-bento {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about-bento-tile--frontend {
+        grid-column: span 2;
+    }
+
+    .about-bento-tile--backend {
+        grid-column: span 1;
     }
 }

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { messagingAdminLoginSchema } from "@/features/messaging";
-import { createSupabaseServerClient } from "../../../../../lib/supabase/auth";
+import { createSupabaseServerClient } from "@lib/supabase/auth";
 
 export async function POST(request: Request) {
     const payload = await request.json().catch(() => null);

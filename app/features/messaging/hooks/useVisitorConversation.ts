@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
-import type { MessagingThread } from "../../../../types/index";
+import type { MessagingThread } from "@shared-types";
 import { getApiErrorMessage, readJsonResponse } from "../http";
 
 export function useVisitorConversation(isOpen: boolean) {

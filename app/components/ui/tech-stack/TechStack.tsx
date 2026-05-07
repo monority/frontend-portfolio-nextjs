@@ -1,5 +1,5 @@
 import { Icon } from "@/components/ui/icon";
-import type { IconName } from "@/components/ui/icon/types";
+import type { IconName } from "@shared-types/icons";
 import Button from "@/components/ui/button";
 import capitalizeFirstLetter from './../../utils/capitalizeFirstLetter';
 

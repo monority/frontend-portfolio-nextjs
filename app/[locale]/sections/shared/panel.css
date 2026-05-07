@@ -1,20 +1,20 @@
 /* ─── Shared Panel Styles ───────────────────────────────────────────── */
 
 .panel-container {
-    --module-accent: var(--foreground);
-    --module-bg: var(--background);
-    --module-surface: var(--card);
-    --module-fg: var(--foreground);
+    --section-accent: var(--foreground);
+    --section-bg: var(--background);
+    --section-surface: var(--card);
+    --section-fg: var(--foreground);
 
     position: relative;
     display: grid;
     gap: var(--space-sm);
     padding: var(--space-sm);
-    border: 1px solid var(--module-accent-border);
+    border: 1px solid var(--section-accent-border);
     border-radius: calc(var(--border-radius-lg) + 4px);
     background:
-        radial-gradient(circle at top right, var(--module-accent-wash), transparent 30%),
-        linear-gradient(160deg, color-mix(in srgb, var(--module-bg) 97%, transparent), color-mix(in srgb, var(--module-surface) 99%, transparent));
+        radial-gradient(circle at top right, var(--section-accent-wash), transparent 30%),
+        linear-gradient(160deg, color-mix(in srgb, var(--section-bg) 97%, transparent), color-mix(in srgb, var(--section-surface) 99%, transparent));
     overflow: hidden;
 }
 
@@ -29,7 +29,7 @@
     width: 18rem;
     height: 18rem;
     border-radius: 999px;
-    background: radial-gradient(circle, var(--module-accent-wash), transparent 68%);
+    background: radial-gradient(circle, var(--section-accent-wash), transparent 68%);
     filter: blur(16px);
     opacity: 0.6;
     z-index: 0;
@@ -39,9 +39,9 @@
     display: grid;
     gap: var(--space-md);
     padding: var(--space-lg);
-    border: 1px solid var(--module-accent-border);
+    border: 1px solid var(--section-accent-border);
     border-radius: var(--border-radius-md);
-    background: var(--module-surface-fill);
+    background: var(--section-surface-fill);
     backdrop-filter: blur(10px);
 }
 
@@ -81,13 +81,13 @@
 .panel-tagline {
     max-width: 34ch;
     font-size: clamp(1rem, 0.94rem + 0.45vw, 1.18rem);
-    color: color-mix(in srgb, var(--module-fg) 76%, var(--text-secondary));
+    color: color-mix(in srgb, var(--section-fg) 76%, var(--text-secondary));
 }
 
 .panel-description,
 .panel-details,
 .panel-list-item {
-    color: color-mix(in srgb, var(--module-fg) 78%, var(--text-secondary));
+    color: color-mix(in srgb, var(--section-fg) 78%, var(--text-secondary));
     line-height: var(--line-height-relaxed);
 }
 
@@ -108,7 +108,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: color-mix(in srgb, var(--module-fg) 66%, var(--text-secondary));
+    color: color-mix(in srgb, var(--section-fg) 66%, var(--text-secondary));
     white-space: nowrap;
     padding-top: 0.35rem;
 }
@@ -121,7 +121,7 @@
 }
 
 .panel-label {
-    color: color-mix(in srgb, var(--module-fg) 60%, var(--text-secondary));
+    color: color-mix(in srgb, var(--section-fg) 60%, var(--text-secondary));
 }
 
 .panel-actions {
@@ -148,8 +148,8 @@
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 999px;
-    background: var(--module-accent);
-    box-shadow: 0 0 0 6px var(--module-accent-glow);
+    background: var(--section-accent);
+    box-shadow: 0 0 0 6px var(--section-accent-glow);
     flex-shrink: 0;
 }
 

@@ -36,8 +36,8 @@ test("portfolio identity copy matches the current content", () => {
     assert.equal(en.header.brand.name, "ronan");
     assert.equal(fr.hero.name, "Ronan Chenu");
     assert.equal(en.hero.name, "Ronan Chenu");
-    assert.match(fr.hero.meta, /Lille/);
-    assert.match(en.hero.meta, /Lille/);
+    assert.match(fr.hero.city, /Lille/);
+    assert.match(en.hero.city, /Lille/);
 });
 
 test("all translation leaves are non-empty strings", () => {

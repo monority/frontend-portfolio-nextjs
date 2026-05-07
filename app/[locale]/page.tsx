@@ -1,19 +1,12 @@
-import Header from "@/[locale]/features/Header";
-import SideNav from "@/[locale]/features/SideNav";
-import Footer from "@/[locale]/features/Footer";
-import Hero from "@/[locale]/sections/hero/Hero";
-import About from "@/[locale]/sections/about/About";
-import Profile from "@/[locale]/sections/profile/Profile";
-import Projects from "@/[locale]/sections/projects/Projects";
-import Creation from "@/[locale]/sections/creation/Creation";
-import Modules from "@/[locale]/sections/modules/Modules";
+import { Footer, Header, SideNav } from "@/features/layout";
+import { About, Creation, Hero, Modules, Profile, Projects } from "./sections";
 
 export default function HomePage() {
     return (
         <>
             <SideNav />
             <Header />
-            <main>
+            <main id="main-content">
                 <Hero />
                 <About />
                 <Projects />

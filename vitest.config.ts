@@ -5,10 +5,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './app'),
-      '@components': path.resolve(__dirname, './components'),
       '@lib': path.resolve(__dirname, './lib'),
       '@constants': path.resolve(__dirname, './constants'),
-      '@types': path.resolve(__dirname, './types'),
+      '@shared-types': path.resolve(__dirname, './types/index.ts'),
+      '@shared-types/': `${path.resolve(__dirname, './types')}/`,
     },
   },
   test: {

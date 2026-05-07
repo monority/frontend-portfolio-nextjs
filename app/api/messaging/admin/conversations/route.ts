@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { listAdminConversations } from "@/features/messaging/services/messaging.server";
-import { requireAdminSession } from "../../../../../lib/supabase/auth";
+import { requireAdminSession } from "@lib/supabase/auth";
 
 export async function GET() {
     try {

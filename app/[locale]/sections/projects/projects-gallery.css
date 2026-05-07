@@ -3,6 +3,7 @@
     grid-area: hero;
     display: flex;
     flex-direction: column;
+    min-width: 0;
     gap: var(--space-sm);
     align-items: stretch;
     background: var(--card);
@@ -95,8 +96,8 @@
 
 .project-bento__fullscreen-btn:hover {
     transform: translateY(-1px);
-    background: color-mix(in srgb, var(--project-accent) 12%, rgb(8 8 11 / 0.42));
-    border-color: color-mix(in srgb, var(--project-accent) 28%, rgb(255 255 255 / 0.32));
+    background: color-mix(in srgb, var(--section-accent) 12%, rgb(8 8 11 / 0.42));
+    border-color: color-mix(in srgb, var(--section-accent) 28%, rgb(255 255 255 / 0.32));
 }
 
 .project-bento__gallery-controls {
@@ -117,8 +118,8 @@
     width: 2.75rem;
     height: 2.75rem;
     color: rgb(255 255 255 / 0.92);
-    background: color-mix(in srgb, var(--project-accent) 10%, rgb(10 10 10 / 0.28));
-    border: 1px solid color-mix(in srgb, var(--project-accent) 18%, rgb(255 255 255 / 0.18));
+    background: color-mix(in srgb, var(--section-accent) 10%, rgb(10 10 10 / 0.28));
+    border: 1px solid color-mix(in srgb, var(--section-accent) 18%, rgb(255 255 255 / 0.18));
     border-radius: 999px;
     backdrop-filter: blur(14px);
     cursor: pointer;
@@ -127,8 +128,8 @@
 
 .project-bento__gallery-nav:hover {
     transform: scale(1.04);
-    background: color-mix(in srgb, var(--project-accent) 18%, rgb(10 10 10 / 0.42));
-    border-color: color-mix(in srgb, var(--project-accent) 30%, rgb(255 255 255 / 0.3));
+    background: color-mix(in srgb, var(--section-accent) 18%, rgb(10 10 10 / 0.42));
+    border-color: color-mix(in srgb, var(--section-accent) 30%, rgb(255 255 255 / 0.3));
 }
 
 .project-bento__gallery-footer {
@@ -148,8 +149,8 @@
     align-items: center;
     gap: 0.45rem;
     padding: 0.55rem 0.8rem;
-    background: color-mix(in srgb, var(--project-accent) 10%, rgb(10 10 10 / 0.28));
-    border: 1px solid color-mix(in srgb, var(--project-accent) 14%, rgb(255 255 255 / 0.14));
+    background: color-mix(in srgb, var(--section-accent) 10%, rgb(10 10 10 / 0.28));
+    border: 1px solid color-mix(in srgb, var(--section-accent) 14%, rgb(255 255 255 / 0.14));
     border-radius: 999px;
     backdrop-filter: blur(14px);
 }
@@ -158,13 +159,13 @@
     width: 0.45rem;
     height: 0.45rem;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--project-accent) 24%, rgb(255 255 255 / 0.32));
+    background: color-mix(in srgb, var(--section-accent) 24%, rgb(255 255 255 / 0.32));
     transition: width var(--transition-fast), background var(--transition-fast), opacity var(--transition-fast);
 }
 
 .project-bento__gallery-dot--active {
     width: 1.35rem;
-    background: var(--project-accent-strong);
+    background: var(--section-accent-strong);
 }
 
 .project-bento__gallery-count {
@@ -172,10 +173,10 @@
     font-size: var(--font-size-xs);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: color-mix(in srgb, var(--project-accent-strong) 72%, rgb(255 255 255 / 0.86));
+    color: color-mix(in srgb, var(--section-accent-strong) 72%, rgb(255 255 255 / 0.86));
     padding: 0.55rem 0.8rem;
-    background: color-mix(in srgb, var(--project-accent) 10%, rgb(10 10 10 / 0.28));
-    border: 1px solid color-mix(in srgb, var(--project-accent) 14%, rgb(255 255 255 / 0.14));
+    background: color-mix(in srgb, var(--section-accent) 10%, rgb(10 10 10 / 0.28));
+    border: 1px solid color-mix(in srgb, var(--section-accent) 14%, rgb(255 255 255 / 0.14));
     border-radius: 999px;
     backdrop-filter: blur(14px);
 }
@@ -192,6 +193,7 @@
 .project-bento__gallery-rail-item {
     position: relative;
     appearance: none;
+    display: flex;
     background: none;
     border: 0;
     padding: 0;
@@ -212,17 +214,17 @@
     height: 3.5rem;
     overflow: hidden;
     border-radius: var(--border-radius-md);
-    border: 1px solid color-mix(in srgb, var(--project-accent) 18%, rgb(255 255 255 / 0.18));
+    border: 1px solid color-mix(in srgb, var(--section-accent) 18%, rgb(255 255 255 / 0.18));
     box-shadow: 0 10px 24px rgb(0 0 0 / 0.18);
 }
 
 .project-bento__gallery-rail-item:nth-child(3) .project-bento__gallery-rail-image,
 .project-bento__gallery-rail-item:nth-child(4) .project-bento__gallery-rail-image {
-    border-color: color-mix(in srgb, var(--project-accent) 30%, rgb(255 255 255 / 0.28));
+    border-color: color-mix(in srgb, var(--section-accent) 30%, rgb(255 255 255 / 0.28));
     box-shadow:
         0 12px 26px rgb(0 0 0 / 0.22),
         inset 0 0 0 1px rgb(255 255 255 / 0.18),
-        inset 0 0 0 2px color-mix(in srgb, var(--project-accent) 12%, transparent);
+        inset 0 0 0 2px color-mix(in srgb, var(--section-accent) 12%, transparent);
 }
 
 .project-bento__gallery-rail-item:nth-child(3) .project-bento__gallery-rail-image::before,
@@ -246,7 +248,7 @@
     border-radius: inherit;
     box-shadow:
         inset 0 0 0 1px rgb(255 255 255 / 0.14),
-        inset 0 0 0 3px color-mix(in srgb, var(--project-bg) 34%, transparent);
+        inset 0 0 0 3px color-mix(in srgb, var(--section-bg) 34%, transparent);
 }
 
 .project-bento__gallery-rail-item::after {
@@ -259,7 +261,7 @@
 }
 
 .project-bento__gallery-rail-item--active::after {
-    box-shadow: inset 0 0 0 1px var(--project-accent-strong);
+    box-shadow: inset 0 0 0 1px var(--section-accent-strong);
 }
 
 .project-bento__gallery-main::after {

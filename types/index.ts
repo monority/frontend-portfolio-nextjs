@@ -2,17 +2,14 @@
 
 export interface Project {
   id: string
-  title: string            // SCREAMING_SNAKE_CASE — affiché
   titleDisplay: string     // "Human Work Force" — usage courant
   tagline: LocalizedText
   description: LocalizedText
-  longDescription?: LocalizedText
   tech: string[]
   live?: string
   github?: string
   year: string
   tags: LocalizedText[]
-  featured?: boolean
   visual: string           // '/images/projects/xxx.webp'
   palette?: ProjectPalettes
   gallery?: string[]
@@ -38,7 +35,6 @@ export interface LocalizedText {
 
 export interface Module {
   id: string
-  title: string
   titleDisplay: string
   tagline: LocalizedText
   description: LocalizedText
@@ -50,7 +46,6 @@ export interface Module {
   npm?: string
   year: string
   category: LocalizedText
-  featured?: boolean
   palette?: ProjectPalettes
 }
 
@@ -161,3 +156,5 @@ export interface MessagingAdminCredentials {
 
 export type Theme = 'light' | 'dark'
 export type Lang = 'fr' | 'en'
+
+export type { IconName } from './icons'

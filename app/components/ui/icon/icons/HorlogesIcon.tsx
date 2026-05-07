@@ -3,7 +3,7 @@
 import React from 'react'
 import type { IconProps } from '@/components/ui/icon/types'
 
-const DashboardPrIcon = React.memo(({
+const HorlogesIcon = React.memo(({
     size = 24,
     className = '',
     title,
@@ -33,6 +33,6 @@ const DashboardPrIcon = React.memo(({
     )
 })
 
-DashboardPrIcon.displayName = 'DashboardPrIcon'
+HorlogesIcon.displayName = 'HorlogesIcon'
 
-export default DashboardPrIcon
+export default HorlogesIcon
