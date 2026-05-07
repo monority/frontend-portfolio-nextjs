@@ -13,8 +13,6 @@ interface WeatherProps {
 
 type WeatherStatus = 'loading' | 'success' | 'error'
 
-const API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY
-
 export default function Weather({
     city = 'Lille',
     className = '',
@@ -30,7 +28,7 @@ export default function Weather({
                 setStatus('loading')
 
                 const response = await fetch(
-                    `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${encodeURIComponent(city)}`,
+                    `/api/weather?city=${encodeURIComponent(city)}`,
                     { signal: controller.signal }
                 )
 
@@ -41,9 +39,9 @@ export default function Weather({
                 const data = await response.json()
 
                 setWeather({
-                    temperature: Math.round(data.current.temp_c),
-                    icon: `https:${data.current.condition.icon}`,
-                    label: data.current.condition.text,
+                    temperature: data.temperature,
+                    icon: data.icon,
+                    label: data.label,
                 })
 
                 setStatus('success')

@@ -60,7 +60,6 @@ export default function Hero() {
     const t = useTranslations("hero");
     const avatarParallaxRef = useRef<HTMLDivElement>(null);
 
-    // Option C: parallax scroll
     useEffect(() => {
         const ctx = gsap.context(() => {
             gsap.to(avatarParallaxRef.current, {
@@ -95,11 +94,9 @@ export default function Hero() {
                         transition={{ duration: 0.7, ease: heroEase }}
                     >
                         <div className="hero-header__titles">
-                            {/* Option A: animated title */}
                             <AnimatedTitle text={t("role")} />
                         </div>
                         <div className="hero-header__legend">
-                            {/* Option C: parallax wrapper + Option D: clip-path reveal */}
                             <div ref={avatarParallaxRef}>
                                 <motion.div
                                     className="hero-header__avatar"

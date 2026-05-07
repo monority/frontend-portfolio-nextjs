@@ -33,11 +33,13 @@ const supabaseServiceRoleKey = z
 const runtimeEnv = {
     NODE_ENV: process.env.NODE_ENV,
     SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
+    WEATHER_API_KEY: process.env.WEATHER_API_KEY,
 };
 export const serverEnv = createEnv({
     server: {
         NODE_ENV: z.enum(["development", "test", "production"]),
         SUPABASE_SERVICE_ROLE_KEY: supabaseServiceRoleKey,
+        WEATHER_API_KEY: z.string().optional(),
     },
     runtimeEnv,
 });

@@ -37,11 +37,11 @@ function MobileMenu({
     isToggle?: boolean;
     isAction?: boolean;
   }> = [
-    { key: "message", icon: "message", label: t("message"), isAction: isMessagingEnabled },
-    { key: "github", icon: "github", label: t("github"), isButton: true },
-    { key: "language", icon: "language", label: t("languageSwitchTo"), link: localizedPath },
-    { key: "theme", icon: "theme", label: t("themeToggle"), isToggle: true },
-  ];
+      { key: "message", icon: "message", label: t("message"), isAction: isMessagingEnabled },
+      { key: "github", icon: "github", label: t("github"), isButton: true },
+      { key: "language", icon: "language", label: t("languageSwitchTo"), link: localizedPath },
+      { key: "theme", icon: "theme", label: t("themeToggle"), isToggle: true },
+    ];
 
   return (
     <AnimatePresence>

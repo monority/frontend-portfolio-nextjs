@@ -22,6 +22,14 @@ const jetMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Ronan Chenu — Front-end Developer",
   description: "Front-end developer based in Lille, building fast, clean and maintainable web interfaces with React and Next.js.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+    ],
+    apple: { url: "/apple-touch-icon.png" },
+  },
   openGraph: {
     title: "Ronan Chenu — Front-end Developer",
     description: "Front-end developer based in Lille, building fast, clean and maintainable web interfaces with React and Next.js.",

@@ -12,7 +12,7 @@ function buildResumeCookie(value: string) {
         maxAge: 60 * 60 * 24 * 30,
         path: "/",
         sameSite: "lax" as const,
-        secure: process.env.NODE_ENV === "production",
+        secure: true,
     };
 }
 

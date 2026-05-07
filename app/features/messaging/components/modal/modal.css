@@ -5,7 +5,7 @@
     inset: 0;
     z-index: 6;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     padding: var(--space-sm);
     overflow: hidden;

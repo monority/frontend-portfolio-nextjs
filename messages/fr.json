@@ -3,10 +3,10 @@
         "brand": {
             "name": "ronan",
             "avatarAlt": "Portrait de Ronan",
-            "homeLabel": "Retour a l'accueil"
+            "homeLabel": "Retour à l'accueil"
         },
         "message": "message",
-        "themeToggle": "Changer de theme",
+        "themeToggle": "Changer de thème",
         "github": "Voir le profil GitHub",
         "language": "Changer de langue",
         "languageSwitchTo": "Passer le site en anglais"
@@ -26,81 +26,81 @@
         "cityUnavailable": "Ville indisponible"
     },
     "about": {
-        "title": "A propos",
-        "description": "Developpeur React, Next.js, Node.js et TypeScript, specialise dans la conception d'interfaces web modernes, performantes et maintenables.\nJ'interviens principalement sur des sujets front-end, avec une attention forte portee a la qualite d'execution, a la lisibilite des parcours et a la coherence produit.\n\nMon approche s'appuie sur des projets concrets, penses pour repondre a des besoins reels et produire un impact visible pour les utilisateurs comme pour l'entreprise.\nEn dehors du developpement, je nourris ma curiosite a travers le sport, la musique et les environnements creatifs.",
+        "title": "À propos",
+        "description": "Développeur React, Next.js, Node.js et TypeScript, spécialisé dans la conception d'interfaces web modernes, performantes et maintenables.\nJ'interviens principalement sur des sujets front-end, avec une attention forte portée à la qualité d'exécution, à la lisibilité des parcours et à la cohérence produit.\n\nMon approche s'appuie sur des projets concrets, pensés pour répondre à des besoins réels et produire un impact visible pour les utilisateurs comme pour l'entreprise.\nEn dehors du développement, je nourris ma curiosité à travers le sport, la musique et les environnements créatifs.",
         "availability": "Disponible",
         "stats": {
             "years": "3+",
-            "yearsLabel": "ans d'experience",
+            "yearsLabel": "ans d'expérience",
             "projects": "~10",
-            "projectsLabel": "projets realises",
+            "projectsLabel": "projets réalisés",
             "location": "Lille",
             "locationLabel": "CDI / Freelance"
         },
         "tech": {
             "frontend": "Front-end",
             "backend": "Back-end",
-            "hosting": "Hebergement",
+            "hosting": "Hébergement",
             "languages": "Langages",
             "tools": "Outils"
         }
     },
     "profile": {
-        "sectionLabel": "Profil & experience",
-        "heading": "Une contribution rapide, structuree et orientee produit",
-        "intro": "J'interviens sur des environnements ou il faut concevoir, structurer et faire avancer une interface avec exigence, tout en gardant une lecture claire des besoins metier et des priorites produit.",
+        "sectionLabel": "Profil & expérience",
+        "heading": "Une contribution rapide, structurée et orientée produit",
+        "intro": "J'interviens sur des environnements où il faut concevoir, structurer et faire avancer une interface avec exigence, tout en gardant une lecture claire des besoins métier et des priorités produit.",
         "qualities": {
             "screens": {
                 "title": "Interfaces & parcours",
-                "desc": "Concevoir des ecrans lisibles, hierarchises et coherents, penses pour rendre les parcours plus fluides sur desktop comme sur mobile.",
+                "desc": "Concevoir des écrans lisibles, hiérarchisés et cohérents, pensés pour rendre les parcours plus fluides sur desktop comme sur mobile.",
                 "context": "HWF · SkillSwap · Horloges"
             },
             "components": {
-                "title": "Systemes UI & composants",
-                "desc": "Mettre en place des composants reutilisables, une base UI coherente et des conventions simples pour accelerer la production sans degrader la qualite.",
+                "title": "Systèmes UI & composants",
+                "desc": "Mettre en place des composants réutilisables, une base UI cohérente et des conventions simples pour accélérer la production sans dégrader la qualité.",
                 "context": "Dashboard · Monority Base"
             },
             "backend": {
-                "title": "Integration front-end / API",
-                "desc": "Connecter l'interface a des APIs et a des usages concrets, avec une couche Node.js claire et pragmatique lorsque le projet le necessite.",
+                "title": "Intégration front-end / API",
+                "desc": "Connecter l'interface à des APIs et à des usages concrets, avec une couche Node.js claire et pragmatique lorsque le projet le nécessite.",
                 "context": "SkillSwap · Dashboard"
             },
             "finish": {
-                "title": "Qualite d'execution",
-                "desc": "Finaliser les details qui renforcent la perception du produit : responsive, accessibilite, performance, confort de lecture et coherence visuelle.",
+                "title": "Qualité d'exécution",
+                "desc": "Finaliser les détails qui renforcent la perception du produit : responsive, accessibilité, performance, confort de lecture et cohérence visuelle.",
                 "context": "Tous les projets"
             }
         },
         "method": {
-            "sectionLabel": "Methode",
-            "heading": "Une approche claire, fiable et orientee livraison",
+            "sectionLabel": "Méthode",
+            "heading": "Une approche claire, fiable et orientée livraison",
             "understand": {
                 "title": "Cadrer le besoin",
-                "desc": "Identifier le probleme a resoudre, les utilisateurs concernes et les priorites fonctionnelles pour poser une base de travail pertinente."
+                "desc": "Identifier le problème à résoudre, les utilisateurs concernés et les priorités fonctionnelles pour poser une base de travail pertinente."
             },
             "usage": {
                 "title": "Clarifier l'usage",
-                "desc": "Travailler la hierarchie de l'information, le rythme de lecture et les interactions pour rendre l'experience plus intuitive et plus efficace."
+                "desc": "Travailler la hiérarchie de l'information, le rythme de lecture et les interactions pour rendre l'expérience plus intuitive et plus efficace."
             },
             "foundation": {
                 "title": "Structurer une base solide",
-                "desc": "Mettre en place un front-end propre, des composants utiles et une integration technique lisible pour faciliter l'evolution du produit."
+                "desc": "Mettre en place un front-end propre, des composants utiles et une intégration technique lisible pour faciliter l'évolution du produit."
             },
             "finish": {
                 "title": "Soigner la livraison",
-                "desc": "Verifier les points qui font la difference en production : responsive, clavier, performance, coherence visuelle et robustesse de l'integration."
+                "desc": "Vérifier les points qui font la différence en production : responsive, clavier, performance, cohérence visuelle et robustesse de l'intégration."
             }
         }
     },
     "footer": {
-        "tagline": "Interfaces web propres, performantes et pensees pour l'utilisateur.",
+        "tagline": "Interfaces web propres, performantes et pensées pour l'utilisateur.",
         "availability": "Disponible pour de nouvelles missions",
         "navLabel": "Navigation dans la page",
         "navHeading": "Navigation",
         "socialHeading": "Contact",
         "builtWith": "Construit avec Next.js · TypeScript · CSS",
         "nav": {
-            "about": "A propos",
+            "about": "À propos",
             "projects": "Projets",
             "profile": "Profil"
         }
@@ -109,18 +109,18 @@
         "eyebrow": "Messagerie",
         "title": "Ouvrir un fil direct",
         "description": "Utilise un pseudo temporaire pour commencer ou reprendre une conversation depuis ce navigateur.",
-        "close": "Fermer la fenetre de messagerie",
+        "close": "Fermer la fenêtre de messagerie",
         "visitor": {
             "introTitle": "Commence avec un pseudo temporaire",
-            "introBody": "Ton fil reste disponible sur ce navigateur grace a un jeton de reprise securise.",
-            "introResume": "Conversation restauree. Tu peux continuer a repondre depuis ce navigateur.",
+            "introBody": "Ton fil reste disponible sur ce navigateur grâce à un jeton de reprise sécurisé.",
+            "introResume": "Conversation restaurée. Tu peux continuer à répondre depuis ce navigateur.",
             "loading": "Chargement de la conversation...",
             "empty": "Aucun message pour le moment. Envoie le premier.",
             "usernameLabel": "Pseudo temporaire",
             "usernamePlaceholder": "ex : pixelronan",
             "messageLabel": "message",
             "messagePlaceholder": "Explique ton besoin, ton contexte ou ta question.",
-            "startAction": "Demarrer la conversation",
+            "startAction": "Démarrer la conversation",
             "replyAction": "Envoyer le message",
             "threadLabel": "Conversation avec {username}",
             "roles": {
@@ -136,38 +136,38 @@
             }
         },
         "admin": {
-            "eyebrow": "Boite privee",
-            "heading": "Centre de controle messagerie",
-            "description": "Consulte les fils visiteurs, reponds depuis l'application et garde l'auth Supabase reservee a l'admin.",
-            "backHome": "Retour accueil",
-            "loadingSession": "Verification de la session admin...",
+            "eyebrow": "Boîte privée",
+            "heading": "Centre de contrôle messagerie",
+            "description": "Consulte les fils visiteurs, réponds depuis l'application et garde l'auth Supabase réservée à l'admin.",
+            "backHome": "Retour à l'accueil",
+            "loadingSession": "Vérification de la session admin...",
             "loadingConversations": "Chargement des conversations...",
             "loginHeading": "Connexion admin",
             "loginDescription": "Utilise ton email et ton mot de passe Supabase Auth.",
             "emailLabel": "Email",
             "passwordLabel": "Mot de passe",
             "loginAction": "Se connecter",
-            "logoutAction": "Se deconnecter",
+            "logoutAction": "Se déconnecter",
             "listHeading": "Conversations",
             "threadHeading": "Choisis une conversation",
-            "threadDescription": "Selectionne un fil visiteur pour voir l'historique complet et repondre.",
+            "threadDescription": "Sélectionne un fil visiteur pour voir l'historique complet et répondre.",
             "threadEmpty": "Aucun message dans cette conversation.",
             "emptyConversations": "Aucune conversation visiteur pour le moment.",
-            "emptyPreview": "Pas encore d'apercu",
-            "sessionActive": "Connecte en tant que {email}",
-            "replyLabel": "Reponse",
-            "replyPlaceholder": "Ecris ta reponse ici.",
-            "replyAction": "Envoyer la reponse",
+            "emptyPreview": "Pas encore d'aperçu",
+            "sessionActive": "Connecté en tant que {email}",
+            "replyLabel": "Réponse",
+            "replyPlaceholder": "Écris ta réponse ici.",
+            "replyAction": "Envoyer la réponse",
             "roles": {
                 "admin": "Admin"
             },
             "errors": {
                 "session": "Impossible de charger la session admin.",
                 "login": "Impossible de se connecter.",
-                "logout": "Impossible de se deconnecter.",
+                "logout": "Impossible de se déconnecter.",
                 "list": "Impossible de charger les conversations.",
                 "thread": "Impossible de charger le fil.",
-                "reply": "Impossible d'envoyer la reponse."
+                "reply": "Impossible d'envoyer la réponse."
             }
         }
     }
