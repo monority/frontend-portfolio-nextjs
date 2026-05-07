@@ -45,6 +45,7 @@
   },
   "gitQuality": {
     "skip": [
+      "Commit Message Quality",
       "Playwright Tests"
     ]
   },

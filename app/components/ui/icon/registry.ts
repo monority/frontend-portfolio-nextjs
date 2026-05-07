@@ -34,7 +34,7 @@ import DarkModeToggleIcon from './icons/DarkModeToggleIcon'
 import DarkModeIcon from './icons/DarkModeIcon'
 import LightModeIcon from './icons/LightModeIcon'
 
-import type { IconName } from './types'
+import type { IconName, IconProps } from './types'
 import LanguageIcon from './icons/LanguageIcon'
 import User from './icons/User'
 import MessageIcon from './icons/MessageIcon'
@@ -56,6 +56,8 @@ import D3JSIcon from './icons/D3JSIcon'
 import WebsocketIcon from './icons/WebsocketIcon'
 import StorybookIcon from './icons/StorybookIcon'
 import CSSIcon from './icons/CSSIcon'
+import CopyIcon from './icons/CopyIcon'
+import CheckIcon from './icons/CheckIcon'
 import GSAPIcon from './icons/GSAPIcon'
 import ThreeJSIcon from './icons/ThreeJSIcon'
 import PrismaIcon from './icons/PrismaIcon'
@@ -73,7 +75,7 @@ import UnityIcon from './icons/UnityIcon'
 import MonorityIcon from './icons/MonorityIcon'
 import NpmIcon from './icons/NpmIcon'
 
-type IconComponent = React.FC<any>
+type IconComponent = React.FC<IconProps>
 
 /**
  * Registry global des icônes disponibles
@@ -135,6 +137,8 @@ export const iconRegistry: Record<IconName, IconComponent> = {
     websocket: WebsocketIcon,
     storybook: StorybookIcon,
     css: CSSIcon,
+    copy: CopyIcon,
+    check: CheckIcon,
     gsap: GSAPIcon,
     threejs: ThreeJSIcon,
     prisma: PrismaIcon,

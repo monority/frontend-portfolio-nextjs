@@ -20,7 +20,23 @@
     "city": "Based in Lille, France",
     "availability": "Available for CDI / CDD / Remote, Freelance",
     "cta": "See my work",
-    "avatarCaption": "Curious. Thorough. Creative."
+    "avatarCaption": "Curious. Thorough. Creative.",
+    "contact": {
+      "actionsLabel": "Reveal contact details",
+      "hint": "Choose a contact method to draw it in the visual.",
+      "canvasAria": "Contact displayed inside a canvas visual",
+      "copy": "Copy",
+      "copied": "Copied",
+      "error": "Contact unavailable.",
+      "email": {
+        "button": "Email",
+        "canvasLabel": "Direct email"
+      },
+      "phone": {
+        "button": "Phone",
+        "canvasLabel": "Direct phone"
+      }
+    }
   },
   "localTime": {
     "loadingCity": "Finding city...",

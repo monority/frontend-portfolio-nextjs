@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { GradientBackground } from "@/components/GradientBackground";
 import { AnimationProvider } from "@/components/animations/AnimationProvider";
 import { CustomCursor } from "@/components/ui/cursor/CustomCursor";
+import Weather from "@/components/utils/Weather";
 import "./styles/index.css";
 const geist = Geist({
   subsets: ["latin"],
@@ -65,6 +66,9 @@ export default async function RootLayout({
         <a href="#main-content" className="skip-to-content">Skip to content</a>
         <CustomCursor />
         <GradientBackground />
+        <div className="weather-spot" aria-label="Local weather">
+          <Weather city="Lille" />
+        </div>
         <ThemeProvider>
           <AnimationProvider>{children}</AnimationProvider>
         </ThemeProvider>

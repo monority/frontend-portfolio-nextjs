@@ -20,7 +20,23 @@
         "city": "Basé à Lille, France",
         "availability": "Disponible en CDI, CDD, remote et freelance",
         "cta": "Voir mes projets",
-        "avatarCaption": "Curieux. Rigoureux. Créatif."
+        "avatarCaption": "Curieux. Rigoureux. Créatif.",
+        "contact": {
+            "actionsLabel": "Afficher les contacts",
+            "hint": "Choisis un contact pour l'afficher dans le visuel.",
+            "canvasAria": "Contact affiché dans un visuel canvas",
+            "copy": "Copier",
+            "copied": "Copié",
+            "error": "Contact indisponible.",
+            "email": {
+                "button": "E-mail",
+                "canvasLabel": "E-mail direct"
+            },
+            "phone": {
+                "button": "Téléphone",
+                "canvasLabel": "Téléphone direct"
+            }
+        }
     },
     "localTime": {
         "loadingCity": "Recherche de la ville...",

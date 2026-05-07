@@ -68,15 +68,18 @@ export default function LocalTime({
 }: LocalTimeProps) {
     const locale = useLocale();
     const t = useTranslations("localTime");
-    const [currentDate, setCurrentDate] = useState<Date | null>(null);
+    const [currentDate, setCurrentDate] = useState(() => new Date());
     const [city, setCity] = useState("");
-    const [timeZone, setTimeZone] = useState("");
-    const [cityStatus, setCityStatus] = useState<CityStatus>("idle");
+    const [timeZone, setTimeZone] = useState(() => Intl.DateTimeFormat().resolvedOptions().timeZone);
+    const [cityStatus, setCityStatus] = useState<CityStatus>(() => {
+        if (typeof navigator === "undefined" || !("geolocation" in navigator)) {
+            return "error";
+        }
+
+        return "idle";
+    });
 
     useEffect(() => {
-        setCurrentDate(new Date());
-        setTimeZone(Intl.DateTimeFormat().resolvedOptions().timeZone);
-
         const intervalId = window.setInterval(() => {
             setCurrentDate(new Date());
         }, 1000);
@@ -87,8 +90,7 @@ export default function LocalTime({
     }, []);
 
     useEffect(() => {
-        if (!("geolocation" in navigator)) {
-            setCityStatus("error");
+        if (cityStatus === "error") {
             return;
         }
 
@@ -195,10 +197,12 @@ export default function LocalTime({
         <div className={["local-time", className].filter(Boolean).join(" ")}>
             <div className="local-time__body">
                 <div className="local-time__content">
+                    <span className="local-time__eyebrow">Local time</span>
                     <strong className="local-time__value">
                         <span className="local-time__day">{day}</span>
-                        <span className="local-time__time"> {time} - {cityLabel}</span>
+                        <span className="local-time__time">{time}</span>
                     </strong>
+                    <span className="local-time__meta">{cityLabel}</span>
                 </div>
             </div>
         </div>

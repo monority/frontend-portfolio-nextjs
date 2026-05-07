@@ -9,6 +9,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import ActionLink from "@/components/ui/action-link";
 import { Icon } from "@/components/ui/icon";
 import { sectionFadeUp, sectionStagger } from "@/components/ui/section/motion";
+import ContactReveal from "./ContactReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -149,6 +150,7 @@ export default function Hero() {
                     >
                         <ActionLink href="#projects" label={t("cta")} variant="solid" size="md" />
                     </motion.div>
+                    <ContactReveal />
                 </motion.div>
             </div>
         </section>

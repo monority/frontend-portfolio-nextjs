@@ -30,16 +30,20 @@ vi.mock('next/image', () => ({
 
 vi.mock('framer-motion', () => ({
   motion: {
-    article: React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement> & {
-      whileHover?: unknown
-      transition?: unknown
-    }>(
-      ({ children, whileHover: _whileHover, transition: _transition, ...props }, ref) => (
+    article: (() => {
+      const MotionArticle = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement> & {
+        whileHover?: unknown
+        transition?: unknown
+      }>(({ children, whileHover: _whileHover, transition: _transition, ...props }, ref) => (
         <article ref={ref} {...props}>
           {children}
         </article>
-      )
-    ),
+      ));
+
+      MotionArticle.displayName = 'motion.article';
+
+      return MotionArticle;
+    })(),
   },
 }))
 

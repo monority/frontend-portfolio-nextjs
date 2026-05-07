@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "node:path";
 import createNextIntlPlugin from 'next-intl/plugin';
 
 import "./env";
@@ -20,7 +21,9 @@ const securityHeaders = [
   },
   {
     key: "Content-Security-Policy",
-    value: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://cdn.weatherapi.com; font-src 'self'; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://nominatim.openstreetmap.org https://timeapi.io; frame-src 'none'; object-src 'none'; base-uri 'self'",
+    value: isDev
+      ? "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://cdn.weatherapi.com; font-src 'self'; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://nominatim.openstreetmap.org https://timeapi.io; frame-src 'none'; object-src 'none'; base-uri 'self'"
+      : "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://cdn.weatherapi.com; font-src 'self'; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://nominatim.openstreetmap.org https://timeapi.io; frame-src 'none'; object-src 'none'; base-uri 'self'",
   },
 ];
 
@@ -29,6 +32,18 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   compiler: {
     removeConsole: !isDev,
+  },
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...(config.resolve.alias ?? {}),
+      "@": path.resolve(__dirname, "app"),
+      "@/components": path.resolve(__dirname, "app/components"),
+      "@lib": path.resolve(__dirname, "lib"),
+      "@constants": path.resolve(__dirname, "constants"),
+      "@shared-types": path.resolve(__dirname, "types/index.ts"),
+    };
+
+    return config;
   },
   images: {
     unoptimized: true, // Disable Next.js image optimization for crisp 4K screenshots

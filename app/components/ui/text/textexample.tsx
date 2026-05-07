@@ -13,7 +13,7 @@ function TextExample() {
             <Text variant="body">Normal paragraph copy.</Text>
             <Text variant="small" color="secondary">Meta info</Text>
             <Text variant="caption">Timestamp · Label</Text>
-            <Text variant="mono">console.log("code feel")</Text>
+            <Text variant="mono">console.log(&quot;code feel&quot;)</Text>
 
             <Text variant="heading" weight="semibold" align="balance" color="secondary">
                 Balanced muted heading

@@ -48,6 +48,8 @@ export type IconName =
   | 'csharp'
   | 'photoshop'
   | 'cloudfare'
+  | 'copy'
+  | 'check'
   | 'd3js'
   | 'dashboard'
   | 'websocket'

@@ -42,12 +42,16 @@ export function useAdminConversations(session: MessagingAdminSession | null) {
 
     useEffect(() => {
         if (!session) {
-            setConversations([]);
-            setThread(null);
-            setActiveConversationId(null);
+            queueMicrotask(() => {
+                setConversations([]);
+                setThread(null);
+                setActiveConversationId(null);
+            });
             return;
         }
-        void fetchConversations();
+        queueMicrotask(() => {
+            void fetchConversations();
+        });
     }, [session, fetchConversations]);
 
     useEffect(() => {

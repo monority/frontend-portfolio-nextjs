@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from 'react'
 
 interface WeatherData {
@@ -60,7 +62,8 @@ export default function Weather({
     if (status === 'error') {
         return (
             <div className={`weather weather--error ${className}`.trim()}>
-                <span className="weather__error">--°C</span>
+                <span className="weather__icon" aria-hidden="true">--</span>
+                <span className="weather__temp">--°C</span>
             </div>
         )
     }
@@ -69,15 +72,12 @@ export default function Weather({
         <div className={`weather ${className}`.trim()}>
             {weather ? (
                 <>
-                    <img
+                    <span
                         className="weather__icon"
-                        src={weather.icon}
-                        alt={weather.label}
-                        width="40"
-                        height="40"
-                        loading="eager"
-                        decoding="async"
-                    />
+                        aria-hidden="true"
+                    >
+                        {weather.icon}
+                    </span>
                     <span className="weather__temp">{weather.temperature}°C</span>
                 </>
             ) : (
