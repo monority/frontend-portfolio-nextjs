@@ -112,7 +112,8 @@ export default function Hero() {
                                         width={720}
                                         height={960}
                                         className="hero-header__image"
-                                        priority
+                                        loading="eager"
+                                        fetchPriority="high"
                                     />
                                 </motion.div>
                             </div>

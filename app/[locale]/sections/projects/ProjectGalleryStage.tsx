@@ -49,7 +49,7 @@ export default function ProjectGalleryStage({
                 <button type="button" className="project-bento__gallery-stage" onClick={onOpenFullscreen} aria-label={fullscreenOpenLabel}>
                     <AnimatePresence mode="wait">
                         <motion.div key={`${project.id}-${boundedActiveSlide}`} className={`project-bento__gallery-slide${isCompactSlide ? " project-bento__gallery-slide--compact" : ""}`} initial={{ opacity: 0, scale: 1.02 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.985 }} transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}>
-                            <Image src={activeImage} alt={`${project.titleDisplay} — ${boundedActiveSlide + 1}`} fill sizes="(max-width: 900px) 100vw, 66vw" className="project-bento__gallery-img project-bento__gallery-img--main" priority />
+                            <Image src={activeImage} alt={`${project.titleDisplay} — ${boundedActiveSlide + 1}`} fill sizes="(max-width: 900px) 100vw, 66vw" className="project-bento__gallery-img project-bento__gallery-img--main" />
                         </motion.div>
                     </AnimatePresence>
                 </button>

@@ -92,7 +92,7 @@ export default function ProjectGalleryModal({
                     <div className="project-modal__viewport">
                         <div className="project-modal__image-shell">
                             <motion.div key={`${project.id}-modal-${boundedActiveSlide}`} className={`project-modal__image-zoom${isCompactSlide ? " project-modal__image-zoom--compact" : ""}`} animate={{ scale: zoom }} transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}>
-                                <Image src={activeImage} alt={`${project.titleDisplay} — ${boundedActiveSlide + 1}`} fill sizes="100vw" className={`project-modal__image${isCompactSlide ? " project-modal__image--compact" : ""}`} priority />
+                                <Image src={activeImage} alt={`${project.titleDisplay} — ${boundedActiveSlide + 1}`} fill sizes="100vw" className={`project-modal__image${isCompactSlide ? " project-modal__image--compact" : ""}`} />
                             </motion.div>
                         </div>
                     </div>
