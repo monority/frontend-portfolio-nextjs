@@ -68,30 +68,36 @@ export default function LocalTime({
 }: LocalTimeProps) {
     const locale = useLocale();
     const t = useTranslations("localTime");
-    const [currentDate, setCurrentDate] = useState(() => new Date());
+    const [currentDate, setCurrentDate] = useState<Date | null>(null);
     const [city, setCity] = useState("");
-    const [timeZone, setTimeZone] = useState(() => Intl.DateTimeFormat().resolvedOptions().timeZone);
-    const [cityStatus, setCityStatus] = useState<CityStatus>(() => {
-        if (typeof navigator === "undefined" || !("geolocation" in navigator)) {
-            return "error";
-        }
-
-        return "idle";
-    });
+    const [timeZone, setTimeZone] = useState("");
+    const [cityStatus, setCityStatus] = useState<CityStatus>("idle");
 
     useEffect(() => {
+        const timeoutId = window.setTimeout(() => {
+            setCurrentDate(new Date());
+            setTimeZone(Intl.DateTimeFormat().resolvedOptions().timeZone);
+        }, 0);
+
         const intervalId = window.setInterval(() => {
             setCurrentDate(new Date());
         }, 1000);
 
         return () => {
+            window.clearTimeout(timeoutId);
             window.clearInterval(intervalId);
         };
     }, []);
 
     useEffect(() => {
-        if (cityStatus === "error") {
-            return;
+        if (typeof navigator === "undefined" || !("geolocation" in navigator)) {
+            const timeoutId = window.setTimeout(() => {
+                setCityStatus("error");
+            }, 0);
+
+            return () => {
+                window.clearTimeout(timeoutId);
+            };
         }
 
         let cancelled = false;
@@ -99,8 +105,6 @@ export default function LocalTime({
         navigator.geolocation.getCurrentPosition(
             async ({ coords }) => {
                 try {
-                    setCityStatus("loading");
-
                     const coordinatesParams = new URLSearchParams({
                         format: "jsonv2",
                         lat: String(coords.latitude),

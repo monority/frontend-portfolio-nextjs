@@ -14,7 +14,7 @@ import Button from "@/components/ui/button";
 import { openExternalUrl } from "@/[locale]/sections/shared/openExternalUrl";
 
 const GITHUB_URL = "https://github.com/monority";
-const LINKEDIN_URL = "https://linkedin.com/in/ronan-chenu";
+const LINKEDIN_URL = "https://linkedin.com/in/ronanchenu";
 
 type MobileMenuProps = {
   isOpen: boolean;

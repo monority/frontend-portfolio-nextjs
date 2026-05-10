@@ -71,3 +71,4 @@ export type IconName =
   | 'unity'
   | 'monority'
   | 'npm'
+  | 'python'

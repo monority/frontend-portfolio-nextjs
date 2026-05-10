@@ -74,6 +74,7 @@ import DesignIcon from './icons/DesignIcon'
 import UnityIcon from './icons/UnityIcon'
 import MonorityIcon from './icons/MonorityIcon'
 import NpmIcon from './icons/NpmIcon'
+import PythonIcon from './icons/PythonIcon'
 
 type IconComponent = React.FC<IconProps>
 
@@ -156,4 +157,5 @@ export const iconRegistry: Record<IconName, IconComponent> = {
     unity: UnityIcon,
     monority: MonorityIcon,
     npm: NpmIcon,
+    python: PythonIcon,
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { JetBrains_Mono } from "next/font/google";
 import { getLocale } from "next-intl/server";
+import { env } from "../env";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { GradientBackground } from "@/components/GradientBackground";
 import { AnimationProvider } from "@/components/animations/AnimationProvider";
@@ -21,6 +22,7 @@ const jetMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: "Ronan Chenu — Front-end Developer",
   description: "Front-end developer based in Lille, building fast, clean and maintainable web interfaces with React and Next.js.",
   icons: {

@@ -58,8 +58,8 @@ export const MODULES: Module[] = [
             { fr: 'Parcours minimal', en: 'Minimal flow' },
             { fr: 'Base extensible', en: 'Extensible base' },
         ],
-        tech: ['Next.js', 'TypeScript', 'CSS'],
-        year: '2025',
+        tech: ['Javascript', 'Node.js'],
+        year: '2026',
         category: {
             fr: 'Utilitaire',
             en: 'Utility',
@@ -87,7 +87,7 @@ export const MODULES: Module[] = [
             { fr: 'Par lots', en: 'Batch-ready flow' },
             { fr: 'Base evolutive', en: 'Evolvable base' },
         ],
-        tech: ['Node.js', 'TypeScript', 'CLI'],
+        tech: ['Python'],
         year: '2026',
         category: {
             fr: 'Utilitaire',
@@ -98,7 +98,7 @@ export const MODULES: Module[] = [
     },
     {
         id: 'screenshot-api',
-        titleDisplay: 'Screenshot API',
+        titleDisplay: 'Screenshot tool',
         tagline: {
             fr: 'Capturer une page ou un etat produit a la demande.',
             en: 'Capture a page or product state on demand.',
@@ -113,16 +113,15 @@ export const MODULES: Module[] = [
         },
         highlights: [
             { fr: 'Generation a la demande', en: 'On-demand generation' },
-            { fr: 'Usage API first', en: 'API-first usage' },
             { fr: 'Integration facile', en: 'Easy integration' },
         ],
-        tech: ['Node.js', 'API', 'TypeScript'],
-        year: '2025',
+        tech: ['Node.js', 'Javascript'],
+        year: '2026',
         category: {
             fr: 'Automatisation',
             en: 'Automation',
         },
-        github: 'https://github.com/monority/tools-screenshot-api',
+        github: 'https://github.com/monority/tools-screenshot',
         palette: PALETTES.gold,
     },
     {
@@ -145,8 +144,8 @@ export const MODULES: Module[] = [
             { fr: 'Qualite de commit', en: 'Commit quality' },
             { fr: 'Usage quotidien', en: 'Daily usage' },
         ],
-        tech: ['Git', 'Node.js', 'CLI'],
-        year: '2025',
+        tech: ['Git', 'Node.js', 'CLI', 'Python'],
+        year: '2026',
         category: {
             fr: 'Outil dev',
             en: 'Developer tool',
@@ -165,4 +164,6 @@ export const MODULE_TECH_ICON_BY_LABEL: Record<string, IconName> = {
     api: "websocket",
     git: "github",
     cli: "arrowRight",
+    javascript: "javascript",
+    python: "python",
 }
