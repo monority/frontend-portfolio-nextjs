@@ -10,29 +10,40 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+function resolvePreferredTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (!savedTheme || savedTheme === "system") {
+    return systemPrefersDark ? "dark" : "light";
+  }
+
+  return savedTheme as "light" | "dark";
+}
+
+function applyThemeClass(theme: "light" | "dark") {
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+    return;
+  }
+
+  document.documentElement.classList.remove("dark");
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">(() => {
-    if (typeof window === "undefined") {
-      return "light";
-    }
-
-    const savedTheme = localStorage.getItem("theme");
-    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    if (!savedTheme || savedTheme === "system") {
-      return systemPrefersDark ? "dark" : "light";
-    }
-
-    return savedTheme as "light" | "dark";
-  });
+  const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
-    if (resolvedTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [resolvedTheme]);
+    const frameId = window.requestAnimationFrame(() => {
+      const nextTheme = resolvePreferredTheme();
+      setResolvedTheme(nextTheme);
+      applyThemeClass(nextTheme);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+    };
+  }, []);
 
   const setTheme = (theme: "light" | "dark" | "system") => {
     let resolved: "light" | "dark";
@@ -45,12 +56,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     localStorage.setItem("theme", theme);
     setResolvedTheme(resolved);
-
-    if (resolved === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    applyThemeClass(resolved);
   };
 
   const toggleTheme = () => {
