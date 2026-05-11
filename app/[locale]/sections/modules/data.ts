@@ -125,8 +125,8 @@ export const MODULES: Module[] = [
         palette: PALETTES.gold,
     },
     {
-        id: 'git-quality-commit',
-        titleDisplay: 'Git Quality Commit',
+        id: 'commitiq-engine',
+        titleDisplay: 'CommitIQ Engine',
         tagline: {
             fr: 'Mieux cadrer la qualite avant le commit.',
             en: 'Improve quality before the commit.',
@@ -150,7 +150,7 @@ export const MODULES: Module[] = [
             fr: 'Outil dev',
             en: 'Developer tool',
         },
-        github: 'https://github.com/monority/tools-commit-quality-check',
+        github: 'https://github.com/monority/tools-commitiq-engine',
         npm: 'https://www.npmjs.com/package/commit-quality-check',
         palette: PALETTES.green,
     },
