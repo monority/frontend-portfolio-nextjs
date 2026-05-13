@@ -2,7 +2,7 @@
 
 Personal portfolio. Bilingual (FR/EN), dark mode, animated.
 
-**Live:** [ronan-chenu.fr](https://ronanchenu.vercel.app)
+**Live:** [ronanchenu.vercel.app](https://ronanchenu.vercel.app)
 
 ## Stack
 
