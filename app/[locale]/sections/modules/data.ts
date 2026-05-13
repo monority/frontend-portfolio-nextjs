@@ -151,7 +151,7 @@ export const MODULES: Module[] = [
             en: 'Developer tool',
         },
         github: 'https://github.com/monority/tools-commitiq-engine',
-        npm: 'https://www.npmjs.com/package/commit-quality-check',
+        npm: 'https://www.npmjs.com/package/commitiq-engine',
         palette: PALETTES.green,
     },
 ]
