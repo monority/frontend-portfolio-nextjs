@@ -29,11 +29,11 @@
 
 .hero-header__image {
     display: block;
-    width: min(25rem, 45vw);
+    width: min(50rem, 45vw);
     height: auto;
     object-fit: cover;
     object-position: center 18%;
-    border-radius: calc(var(--border-radius-xl) * 1.2);
+    border-radius: calc(var(--border-radius-xl) * 0.2);
     filter: saturate(0.94) contrast(1.04);
 }
 
