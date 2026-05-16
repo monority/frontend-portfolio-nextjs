@@ -101,8 +101,8 @@ export default function Hero() {
                             <div ref={avatarParallaxRef}>
                                 <motion.div
                                     className="hero-header__avatar"
-                                    initial={{ clipPath: "inset(100% 0 0 0 round 2.4rem)" }}
-                                    animate={{ clipPath: "inset(0% 0 0 0 round 2.4rem)" }}
+                                    initial={{ clipPath: "inset(100% 0 0 0 round 1.2rem)" }}
+                                    animate={{ clipPath: "inset(0% 0 0 0 round 1.2rem)" }}
                                     transition={{ duration: 0.9, ease: heroEase, delay: 0.4 }}
                                     whileHover={{ scale: 1.02 }}
                                 >
