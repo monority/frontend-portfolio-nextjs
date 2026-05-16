@@ -10,7 +10,8 @@
     "github": "View GitHub profile",
     "linkedin": "View LinkedIn profile",
     "language": "Change language",
-    "languageSwitchTo": "Switch site to French"
+    "languageSwitchTo": "Switch site to French",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "name": "Ronan Chenu",

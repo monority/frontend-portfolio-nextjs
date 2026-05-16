@@ -47,6 +47,20 @@ function MobileMenu({ isOpen, onClose, isMessagingEnabled, onOpenMessaging, loca
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
+            <button
+              type="button"
+              className="mobile-menu__close-btn"
+              onClick={onClose}
+              aria-label={t("closeMenu")}
+            >
+              <Icon
+                name="arrowRight"
+                title={t("closeMenu")}
+                sizeClass="icon-sm"
+                className="mobile-menu__close-icon"
+              />
+              <span>{t("closeMenu")}</span>
+            </button>
             <motion.ul className="mobile-menu__list">
               {isMessagingEnabled && (
                 <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1, duration: 0.3 }}>
