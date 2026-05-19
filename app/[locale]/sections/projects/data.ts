@@ -26,23 +26,23 @@ export const PROJECTS_CONTENT: Record<Lang, {
 }> = {
   fr: {
     sectionLabel: 'Projets',
-    heading: 'Une selection de projets recents',
-    intro: 'Des contextes differents, une meme intention : rendre un produit plus simple a comprendre, plus agreable a utiliser et plus solide cote front.',
+    heading: 'Une sélection de projets récents',
+    intro: 'Des contextes différents, une même intention : rendre un produit plus simple à comprendre, plus agréable à utiliser et plus solide côté front.',
     pickerLabel: 'Choisir un projet :',
     paletteLabel: 'Palette',
     lightMode: 'Mode clair',
     darkMode: 'Mode sombre',
-    scopeLabel: 'Perimetre',
+    scopeLabel: 'Périmètre',
     liveSite: 'Voir le site live',
     techStack: 'Stack technique',
     github: 'GitHub',
     fullscreen: 'Fullscreen',
-    openFullscreenGallery: 'Ouvrir la galerie en plein ecran',
-    resetZoom: 'Reinitialiser le zoom',
+    openFullscreenGallery: 'Ouvrir la galerie en plein écran',
+    resetZoom: 'Réinitialiser le zoom',
     closeModal: 'Fermer la modal',
-    previousImage: 'Image precedente',
+    previousImage: 'Image précédente',
     nextImage: 'Image suivante',
-    zoomOut: 'Reduire le zoom',
+    zoomOut: 'Réduire le zoom',
     zoomIn: 'Augmenter le zoom',
     viewImage: (index) => `Voir l'image ${index}`,
     showImage: (index) => `Afficher l'image ${index}`,
@@ -147,7 +147,7 @@ export const PROJECTS: Project[] = [
     id: 'dashboard-rch',
     titleDisplay: 'Dashboard',
     tagline: {
-      fr: 'Donnees de marche en temps reel.',
+      fr: 'Données de marché en temps réel.',
       en: 'Real-time market data.',
     },
     description: {
@@ -159,7 +159,7 @@ export const PROJECTS: Project[] = [
     tags: [
       { fr: 'dashboard', en: 'dashboard' },
       { fr: 'data', en: 'data' },
-      { fr: 'temps reel', en: 'real-time' },
+      { fr: 'temps réel', en: 'real-time' },
     ],
     live: 'https://dashboard-rch.vercel.app',
     github: 'https://github.com/monority/frontend-dashboard-react',
@@ -183,7 +183,7 @@ export const PROJECTS: Project[] = [
     id: 'skillswap',
     titleDisplay: 'SkillSwap',
     tagline: {
-      fr: 'Echangez vos competences.',
+      fr: 'Échangez vos compétences.',
       en: 'Exchange your skills.',
     },
     description: {
@@ -256,7 +256,7 @@ export const PROJECTS: Project[] = [
     id: 'cesar-lezard',
     titleDisplay: 'César Lézard',
     tagline: {
-      fr: 'Experience musicale immersive.',
+      fr: 'Expérience musicale immersive.',
       en: 'Immersive music experience.',
     },
     description: {

@@ -47,11 +47,11 @@ export const CREATIONS: CreationItem[] = [
       en: 'Level design',
     },
     tagline: {
-      fr: 'Des cartes pensées pour le rythme, la lecture et l ambiance.',
+      fr: 'Des cartes pensées pour le rythme, la lecture et l\'ambiance.',
       en: 'Maps shaped around pacing, readability, and atmosphere.',
     },
     description: {
-      fr: 'Je conçois des maps pour le moteur Source avec une attention forte portée au flow, aux points de repère visuels et à la sensation d exploration.',
+      fr: 'Je conçois des maps pour le moteur Source avec une attention forte portée au flow, aux points de repère visuels et à la sensation d\'exploration.',
       en: 'I build maps for the Source engine with a strong focus on flow, visual landmarks, and the feeling of exploration.',
     },
     details: {
@@ -66,7 +66,7 @@ export const CREATIONS: CreationItem[] = [
     tools: ['Hammer Editor', 'Source Engine', 'Level Design'],
     outputs: [
       { fr: 'Maps jouables', en: 'Playable maps' },
-      { fr: 'Prototypes d environnements', en: 'Environment prototypes' },
+      { fr: 'Prototypes d\'environnements', en: 'Environment prototypes' },
       { fr: 'Scènes atmosphériques', en: 'Atmospheric scenes' },
     ],
     link: 'https://gamebanana.com/members/1448278',
@@ -94,11 +94,11 @@ export const CREATIONS: CreationItem[] = [
       en: 'Source interfaces made clearer, more cohesive, and more immersive.',
     },
     description: {
-      fr: 'Je crée des GUIs pour le moteur Source en travaillant la hiérarchie, la lisibilité et l intégration visuelle avec l univers du jeu.',
+      fr: 'Je crée des GUIs pour le moteur Source en travaillant la hiérarchie, la lisibilité et l\'intégration visuelle avec l\'univers du jeu.',
       en: 'I design GUIs for the Source engine by focusing on hierarchy, readability, and visual integration with the game universe.',
     },
     details: {
-      fr: 'L objectif est de produire des interfaces utiles sans casser l immersion: meilleurs repères, structure plus nette et équilibre entre style et fonctionnalité.',
+      fr: 'L\'objectif est de produire des interfaces utiles sans casser l\'immersion: meilleurs repères, structure plus nette et équilibre entre style et fonctionnalité.',
       en: 'The goal is to deliver useful interfaces without breaking immersion: stronger cues, clearer structure, and a better balance between style and function.',
     },
     highlights: [
@@ -110,7 +110,7 @@ export const CREATIONS: CreationItem[] = [
     outputs: [
       { fr: 'HUDs', en: 'HUDs' },
       { fr: 'Menus', en: 'Menus' },
-      { fr: 'Éléments d interface', en: 'Interface elements' },
+      { fr: 'Éléments d\'interface', en: 'Interface elements' },
     ],
     link: 'https://gamebanana.com/members/1448278',
     year: '2017',
@@ -153,7 +153,7 @@ export const CREATIONS: CreationItem[] = [
     outputs: [
       { fr: 'Prototype jouable', en: 'Playable prototype' },
       { fr: 'Direction visuelle', en: 'Visual direction' },
-      { fr: 'Système d expérience', en: 'Experience system' },
+      { fr: 'Système d\'expérience', en: 'Experience system' },
     ],
     link: 'https://iej-nouvelles-images.itch.io/rezan',
     year: '2017',

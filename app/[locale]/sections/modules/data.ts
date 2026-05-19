@@ -15,9 +15,9 @@ export const MODULES_CONTENT: Record<Lang, {
 }> = {
     fr: {
         sectionLabel: 'Modules',
-        heading: 'Des briques plus petites, pensees pour etre utiles',
-        intro: 'Des mini projets plus cibles, construits comme des modules autonomes : une intention claire, une execution propre et une base facile a faire evoluer.',
-        highlights: 'Points cles',
+        heading: 'Des briques plus petites, pensées pour être utiles',
+        intro: 'Des mini projets plus ciblés, construits comme des modules autonomes : une intention claire, une exécution propre et une base facile à faire évoluer.',
+        highlights: 'Points clés',
         stack: 'Stack technique',
         live: 'Voir le module',
         github: 'GitHub',
@@ -42,15 +42,15 @@ export const MODULES: Module[] = [
         id: 'convert-img',
         titleDisplay: 'Convert Img',
         tagline: {
-            fr: 'Conversion d images rapide et sans friction.',
+            fr: 'Conversion d\'images rapide et sans friction.',
             en: 'Fast image conversion without friction.',
         },
         description: {
-            fr: 'Petit outil focalise sur une tache simple: convertir des images proprement, avec une interface claire et un parcours direct.',
+            fr: 'Petit outil focalisé sur une tâche simple: convertir des images proprement, avec une interface claire et un parcours direct.',
             en: 'A focused utility built for one simple job: converting images cleanly with a clear interface and a direct flow.',
         },
         details: {
-            fr: 'Le module a ete pense comme une brique autonome: peu de bruit visuel, actions immediates et structure facile a enrichir si de nouveaux formats ou options sont ajoutes.',
+            fr: 'Le module a été pensé comme une brique autonome: peu de bruit visuel, actions immédiates et structure facile à enrichir si de nouveaux formats ou options sont ajoutés.',
             en: 'This module was designed as a self-contained building block: low visual noise, immediate actions, and a structure that stays easy to extend when new formats or options are added.',
         },
         highlights: [
@@ -71,21 +71,21 @@ export const MODULES: Module[] = [
         id: 'compress-multi',
         titleDisplay: 'Compress Multi',
         tagline: {
-            fr: 'Compresser PDF, images et autres fichiers dans un meme flux.',
+            fr: 'Compresser PDF, images et autres fichiers dans un même flux.',
             en: 'Compress PDFs, images, and other files in one flow.',
         },
         description: {
-            fr: 'Outil polyvalent pense pour reduire le poids de plusieurs types de fichiers avec une interface claire, un parcours direct et peu de friction.',
+            fr: 'Outil polyvalent pensé pour réduire le poids de plusieurs types de fichiers avec une interface claire, un parcours direct et peu de friction.',
             en: 'A versatile tool built to reduce the size of multiple file types with a clear interface, a direct flow, and low friction.',
         },
         details: {
-            fr: 'Le module regroupe des usages souvent disperses dans plusieurs outils: compresser des PDF, des images ou d autres documents depuis une meme base, avec une logique simple a etendre.',
+            fr: 'Le module regroupe des usages souvent dispersés dans plusieurs outils: compresser des PDF, des images ou d\'autres documents depuis une même base, avec une logique simple à étendre.',
             en: 'This module brings together workflows that are often split across multiple tools: compressing PDFs, images, or other documents from one base, with logic that stays simple to extend.',
         },
         highlights: [
             { fr: 'Compression multi-format', en: 'Multi-format compression' },
             { fr: 'Par lots', en: 'Batch-ready flow' },
-            { fr: 'Base evolutive', en: 'Evolvable base' },
+            { fr: 'Base évolutive', en: 'Evolvable base' },
         ],
         tech: ['Python'],
         year: '2026',
@@ -100,20 +100,20 @@ export const MODULES: Module[] = [
         id: 'screenshot-api',
         titleDisplay: 'Screenshot tool',
         tagline: {
-            fr: 'Capturer une page ou un etat produit a la demande.',
+            fr: 'Capturer une page ou un état produit à la demande.',
             en: 'Capture a page or product state on demand.',
         },
         description: {
-            fr: 'Module oriente service pour generer des captures depuis une URL ou un contexte donne, utile pour automatiser des usages produit ou marketing.',
+            fr: 'Module orienté service pour générer des captures depuis une URL ou un contexte donné, utile pour automatiser des usages produit ou marketing.',
             en: 'A service-oriented module that generates screenshots from a URL or a given state, useful for product and marketing automation.',
         },
         details: {
-            fr: 'L objectif est d offrir une brique claire a brancher dans un workflow plus large: generation, export et reutilisation, sans surcharger l experience.',
+            fr: 'L\'objectif est d\'offrir une brique claire à brancher dans un workflow plus large: génération, export et réutilisation, sans surcharger l\'expérience.',
             en: 'The goal is to provide a clean building block that plugs into a broader workflow for generation, export, and reuse without overcomplicating the experience.',
         },
         highlights: [
-            { fr: 'Generation a la demande', en: 'On-demand generation' },
-            { fr: 'Integration facile', en: 'Easy integration' },
+            { fr: 'Génération à la demande', en: 'On-demand generation' },
+            { fr: 'Intégration facile', en: 'Easy integration' },
         ],
         tech: ['Node.js', 'Javascript'],
         year: '2026',
@@ -128,20 +128,20 @@ export const MODULES: Module[] = [
         id: 'commitiq-engine',
         titleDisplay: 'CommitIQ Engine',
         tagline: {
-            fr: 'Mieux cadrer la qualite avant le commit.',
+            fr: 'Mieux cadrer la qualité avant le commit.',
             en: 'Improve quality before the commit.',
         },
         description: {
-            fr: 'Outil centre sur le confort de developpement pour verifier, structurer ou guider la qualite des commits avant envoi.',
+            fr: 'Outil centré sur le confort de développement pour vérifier, structurer ou guider la qualité des commits avant envoi.',
             en: 'A developer-focused tool designed to improve commit quality by checking, structuring, or guiding changes before they are sent.',
         },
         details: {
-            fr: 'Le module met l accent sur la lisibilite et les garde-fous: une logique simple a maintenir, utile seul ou comme etape d un workflow plus grand.',
+            fr: 'Le module met l\'accent sur la lisibilité et les garde-fous: une logique simple à maintenir, utile seul ou comme étape d\'un workflow plus grand.',
             en: 'This module emphasizes readability and guardrails: simple logic to maintain, useful on its own or as a step inside a larger workflow.',
         },
         highlights: [
             { fr: 'Workflow dev', en: 'Dev workflow' },
-            { fr: 'Qualite de commit', en: 'Commit quality' },
+            { fr: 'Qualité de commit', en: 'Commit quality' },
             { fr: 'Usage quotidien', en: 'Daily usage' },
         ],
         tech: ['Git', 'Node.js', 'CLI', 'Python'],
