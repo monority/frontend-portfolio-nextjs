@@ -63,6 +63,12 @@
 	text-decoration: none;
 }
 
+.header-title__text {
+	display: flex;
+	align-items: center;
+	gap: var(--space-sm);
+}
+
 .header-nav {
 	display: flex;
 }

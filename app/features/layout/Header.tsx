@@ -147,6 +147,7 @@ export default function Header() {
             <div className="header-title">
               <Link href={`/${locale}`} className="header-title__link" aria-label={t("brand.homeLabel")}>
                 <div className="header-title__text">
+                  <Icon name="monority" sizeClass="icon-sm" aria-hidden="true" />
                   <h3>{t("brand.name")}</h3>
                 </div>
               </Link>
