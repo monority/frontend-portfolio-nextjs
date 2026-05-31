@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { checkRateLimit } from "../../../lib/rate-limit";
 
 const citySchema = z.string().min(1).max(100);
 
@@ -38,6 +39,11 @@ function resolveWeatherCode(weatherCode: number) {
     return WEATHER_CODE_MAP[weatherCode] ?? { icon: "🌡️", label: "Weather" };
 }
 
+function getClientIp(request: Request): string {
+    const forwarded = request.headers.get("x-forwarded-for");
+    return forwarded?.split(",")[0]?.trim() ?? "unknown";
+}
+
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const city = searchParams.get("city");
@@ -45,6 +51,19 @@ export async function GET(request: Request) {
     const parsed = citySchema.safeParse(city);
     if (!parsed.success) {
         return NextResponse.json({ error: "Invalid city" }, { status: 400 });
+    }
+
+    const identifier = `${getClientIp(request)}:weather`;
+    const rateLimit = checkRateLimit(identifier);
+
+    if (!rateLimit.allowed) {
+        return NextResponse.json(
+            { error: "Too many requests. Please try again later." },
+            {
+                status: 429,
+                headers: { "Retry-After": String(rateLimit.retryAfter) },
+            },
+        );
     }
 
     try {

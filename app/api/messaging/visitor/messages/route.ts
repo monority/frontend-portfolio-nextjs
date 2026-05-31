@@ -4,6 +4,12 @@ import { cookies } from "next/headers";
 import { messagingPostMessageSchema } from "../../../../features/messaging";
 import { addVisitorMessage } from "../../../../features/messaging/services/messaging.server";
 import { MESSAGING_RESUME_COOKIE_NAME } from "../../../../../lib/supabase/utils";
+import { checkRateLimit } from "../../../../../lib/rate-limit";
+
+function getClientIp(request: Request): string {
+    const forwarded = request.headers.get("x-forwarded-for");
+    return forwarded?.split(",")[0]?.trim() ?? "unknown";
+}
 
 export async function POST(request: Request) {
     const cookieStore = await cookies();
@@ -11,6 +17,19 @@ export async function POST(request: Request) {
 
     if (!token) {
         return NextResponse.json({ error: "Missing conversation token" }, { status: 401 });
+    }
+
+    const identifier = `${getClientIp(request)}:visitor:messages:${token}`;
+    const rateLimit = checkRateLimit(identifier);
+
+    if (!rateLimit.allowed) {
+        return NextResponse.json(
+            { error: "Too many requests. Please try again later." },
+            {
+                status: 429,
+                headers: { "Retry-After": String(rateLimit.retryAfter) },
+            },
+        );
     }
 
     const payload = await request.json().catch(() => null);

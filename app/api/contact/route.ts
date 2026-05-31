@@ -1,6 +1,7 @@
 import { createDecipheriv, createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { serverEnv } from "../../../env.server";
+import { checkRateLimit } from "../../../lib/rate-limit";
 
 export const runtime = "nodejs";
 
@@ -43,12 +44,30 @@ function isContactKind(value: string | null): value is ContactKind {
     return value === "email" || value === "phone";
 }
 
+function getClientIp(request: Request): string {
+    const forwarded = request.headers.get("x-forwarded-for");
+    return forwarded?.split(",")[0]?.trim() ?? "unknown";
+}
+
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const kind = searchParams.get("type");
 
     if (!isContactKind(kind)) {
         return NextResponse.json({ error: "Invalid contact type" }, { status: 400 });
+    }
+
+    const identifier = `${getClientIp(request)}:contact:${kind}`;
+    const rateLimit = checkRateLimit(identifier);
+
+    if (!rateLimit.allowed) {
+        return NextResponse.json(
+            { error: "Too many requests. Please try again later." },
+            {
+                status: 429,
+                headers: { "Retry-After": String(rateLimit.retryAfter) },
+            },
+        );
     }
 
     const encryptedValue = encryptedByKind[kind];

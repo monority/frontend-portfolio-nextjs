@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { messagingConversationSchema } from "../../../../features/messaging";
 import { startVisitorConversation } from "../../../../features/messaging/services/messaging.server";
 import { MESSAGING_RESUME_COOKIE_NAME } from "../../../../../lib/supabase/utils";
+import { checkRateLimit } from "../../../../../lib/rate-limit";
 
 function buildResumeCookie(value: string) {
     return {
@@ -16,7 +17,25 @@ function buildResumeCookie(value: string) {
     };
 }
 
+function getClientIp(request: Request): string {
+    const forwarded = request.headers.get("x-forwarded-for");
+    return forwarded?.split(",")[0]?.trim() ?? "unknown";
+}
+
 export async function POST(request: Request) {
+    const identifier = `${getClientIp(request)}:visitor:conversation`;
+    const rateLimit = checkRateLimit(identifier);
+
+    if (!rateLimit.allowed) {
+        return NextResponse.json(
+            { error: "Too many requests. Please try again later." },
+            {
+                status: 429,
+                headers: { "Retry-After": String(rateLimit.retryAfter) },
+            },
+        );
+    }
+
     const payload = await request.json().catch(() => null);
     const parsedPayload = messagingConversationSchema.safeParse(payload);
 
