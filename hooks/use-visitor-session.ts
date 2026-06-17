@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from "react";
-import type { MessagingConversationSummary, MessagingThread } from "@/types";
+import type { MessagingConversationSummary, MessagingThread } from "@shared-types";
 
 import {
   storeVisitorToken,
