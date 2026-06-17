@@ -11,7 +11,7 @@ import {
   getVisitorToken,
   clearVisitorToken,
   createAndStoreVisitorToken,
-} from "@/lib/visitor-token";
+} from "@lib/visitor-token";
 
 interface UseVisitorSessionResult {
   token: string | null;
