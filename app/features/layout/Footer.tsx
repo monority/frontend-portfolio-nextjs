@@ -9,7 +9,7 @@ import { sectionFadeUp, sectionViewport } from "@/components/ui/section/motion";
 const SOCIAL_LINKS = [
   { icon: "github" as const, label: "GitHub", href: "https://github.com/monority" },
   { icon: "linkedin" as const, label: "LinkedIn", href: "https://linkedin.com/in/ronanchenu" },
-  { icon: "email" as const, label: "Email", href: "mailto:chenu.pro@gmail.com" },
+  { icon: "email" as const, label: "Email", href: "mailto:ronanchenu.dev@gmail.com" },
 ] as const;
 
 const NAV_LINKS = [

@@ -32,10 +32,6 @@
       "email": {
         "button": "Email",
         "canvasLabel": "Direct email"
-      },
-      "phone": {
-        "button": "Phone",
-        "canvasLabel": "Direct phone"
       }
     }
   },

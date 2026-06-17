@@ -14,7 +14,6 @@ import NeonIcon from './icons/NeonIcon'
 import NETIcon from './icons/NETIcon'
 import NextJsIcon from './icons/NextJsIcon'
 import NodeIcon from './icons/NodeIcon'
-import PhoneIcon from './icons/PhoneIcon'
 import PHPIcon from './icons/PHPIcon'
 import RailwayIcon from './icons/RailwayIcon'
 import ReactIcon from './icons/ReactIcon'
@@ -99,7 +98,6 @@ export const iconRegistry: Record<IconName, IconComponent> = {
     dotnet: NETIcon,
     nextjs: NextJsIcon,
     node: NodeIcon,
-    phone: PhoneIcon,
     php: PHPIcon,
     railway: RailwayIcon,
     react: ReactIcon,

@@ -51,7 +51,6 @@ const runtimeEnv = {
     WEATHER_API_KEY: process.env.WEATHER_API_KEY,
     CONTACT_CRYPTO_KEY: process.env.CONTACT_CRYPTO_KEY,
     CONTACT_EMAIL_ENCRYPTED: process.env.CONTACT_EMAIL_ENCRYPTED,
-    CONTACT_PHONE_ENCRYPTED: process.env.CONTACT_PHONE_ENCRYPTED,
 };
 export const serverEnv = createEnv({
     server: {
@@ -60,7 +59,6 @@ export const serverEnv = createEnv({
         WEATHER_API_KEY: z.string().optional(),
         CONTACT_CRYPTO_KEY: optionalNonEmptyString,
         CONTACT_EMAIL_ENCRYPTED: encryptedContactValue,
-        CONTACT_PHONE_ENCRYPTED: encryptedContactValue,
     },
     runtimeEnv,
 });

@@ -13,7 +13,6 @@ export type IconName =
   | 'dotnet'
   | 'nextjs'
   | 'node'
-  | 'phone'
   | 'php'
   | 'railway'
   | 'react'

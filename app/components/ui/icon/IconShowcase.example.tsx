@@ -11,7 +11,6 @@ export function IconShowcase() {
                     <Icon name="github" size={24} title="GitHub" className="text-gray-700" />
                     <Icon name="linkedin" size={24} title="LinkedIn" className="text-blue-600" />
                     <Icon name="email" size={24} title="Email" className="text-red-500" />
-                    <Icon name="phone" size={24} title="Phone" className="text-green-500" />
                     <Icon name="location" size={24} title="Location" className="text-purple-500" />
                 </div>
             </section>
@@ -84,7 +83,6 @@ export function IconShowcase() {
                     <Icon name="github" sizeClass="icon-lg" className="icon-primary" title="Primary" />
                     <Icon name="linkedin" sizeClass="icon-lg" className="icon-secondary" title="Secondary" />
                     <Icon name="email" sizeClass="icon-lg" className="icon-success" title="Success" />
-                    <Icon name="phone" sizeClass="icon-lg" className="icon-warning" title="Warning" />
                     <Icon name="location" sizeClass="icon-lg" className="icon-error" title="Error" />
                 </div>
             </section>

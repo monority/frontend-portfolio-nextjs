@@ -5,11 +5,10 @@ import { checkRateLimit } from "../../../lib/rate-limit";
 
 export const runtime = "nodejs";
 
-type ContactKind = "email" | "phone";
+type ContactKind = "email";
 
 const encryptedByKind: Record<ContactKind, string | undefined> = {
     email: serverEnv.CONTACT_EMAIL_ENCRYPTED,
-    phone: serverEnv.CONTACT_PHONE_ENCRYPTED,
 };
 
 function normalizeBase64(value: string) {
@@ -41,7 +40,7 @@ function decryptContactValue(encryptedValue: string, rawKey: string) {
 }
 
 function isContactKind(value: string | null): value is ContactKind {
-    return value === "email" || value === "phone";
+    return value === "email";
 }
 
 function getClientIp(request: Request): string {

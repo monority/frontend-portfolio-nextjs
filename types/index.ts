@@ -98,7 +98,6 @@ export interface Person {
   email: string
   github: string
   linkedin: string
-  phone?: string
   available: boolean
 }
 

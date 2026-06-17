@@ -6,10 +6,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Button from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 
-type ContactKind = "email" | "phone";
+type ContactKind = "email";
 type LoadState = "idle" | "loading" | "ready" | "error" | "copied";
 
-const contactKinds: ContactKind[] = ["email", "phone"];
+const contactKinds: ContactKind[] = ["email"];
 
 function getCssVar(name: string, fallback: string) {
     if (typeof window === "undefined") {
@@ -169,7 +169,7 @@ function ContactPill({ kind }: { kind: ContactKind }) {
                 aria-label={loadState === "error" ? t("error") : isRevealed ? t(`${kind}.canvasLabel`) : t(`${kind}.button`)}
                 variant="primary"
                 size="lg"
-                rightIcon={<Icon name={kind === "email" ? "email" : "phone"} sizeClass="icon-md" aria-hidden="true" />}
+                rightIcon={<Icon name="email" sizeClass="icon-md" aria-hidden="true" />}
             >
             </Button>
             {isPopoverVisible ? (
