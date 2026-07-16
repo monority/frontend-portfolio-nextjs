@@ -1,12 +1,11 @@
 .heading-title {
     font-size: clamp(calc(var(--font-size-lg) * 1.6),
-            6vw,
+            5.5vw,
             calc(var(--font-size-2xl) * 2.2));
     line-height: 1.08;
     font-weight: var(--font-weight-bold);
     letter-spacing: var(--letter-spacing-tight);
     word-break: break-word;
-    text-wrap: balance;
     text-transform: uppercase;
 }
 

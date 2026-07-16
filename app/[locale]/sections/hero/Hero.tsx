@@ -37,7 +37,7 @@ function AnimatedTitle({ text }: { text: string }) {
                         initial="hidden"
                         animate="visible"
                         aria-hidden="true"
-                        style={{ display: "inline-block" }}
+                        style={{ display: "inline-block", whiteSpace: "nowrap" }}
                     >
                         {word.split("").map((char, ci) => (
                             <motion.span
