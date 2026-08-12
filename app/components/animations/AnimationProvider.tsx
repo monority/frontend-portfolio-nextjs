@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 ScrollTrigger.config({ ignoreMobileResize: true })
 
-type LenisType = Awaited<ReturnType<typeof import('lenis')>>['default']
+type LenisType = InstanceType<typeof import('lenis').default>
 
 export function AnimationProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
