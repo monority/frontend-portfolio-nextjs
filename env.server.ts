@@ -49,6 +49,7 @@ const runtimeEnv = {
     NODE_ENV: process.env.NODE_ENV,
     SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
     WEATHER_API_KEY: process.env.WEATHER_API_KEY,
+    GITHUB_TOKEN: process.env.GITHUB_TOKEN ?? process.env.GITHUB_API_KEY,
     CONTACT_CRYPTO_KEY: process.env.CONTACT_CRYPTO_KEY,
     CONTACT_EMAIL_ENCRYPTED: process.env.CONTACT_EMAIL_ENCRYPTED,
 };
@@ -57,6 +58,7 @@ export const serverEnv = createEnv({
         NODE_ENV: z.enum(["development", "test", "production"]),
         SUPABASE_SERVICE_ROLE_KEY: supabaseServiceRoleKey,
         WEATHER_API_KEY: z.string().optional(),
+        GITHUB_TOKEN: optionalNonEmptyString,
         CONTACT_CRYPTO_KEY: optionalNonEmptyString,
         CONTACT_EMAIL_ENCRYPTED: encryptedContactValue,
     },

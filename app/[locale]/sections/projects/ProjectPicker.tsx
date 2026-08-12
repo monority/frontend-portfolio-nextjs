@@ -26,7 +26,7 @@ export default function ProjectPicker({ activeId, content, onSelect, projects }:
     return (
         <ShowcasePicker className="projects-picker">
             <span className="projects-picker__label">{content.pickerLabel}</span>
-            <div className="projects-picker__list">
+            <div className="projects-picker__list" data-lenis-prevent>
                 {projects.map((project, index) => {
                     const accentColor = getProjectAccentColor(project)
 

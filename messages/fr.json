@@ -35,6 +35,33 @@
             }
         }
     },
+    "githubContributions": {
+        "heading": "{total} contributions en {year}",
+        "ariaLabel": "Contributions de {username} en {year}",
+        "error": "Impossible de récupérer les contributions de @{username}.",
+        "dayTitle": "{count, plural, =0 {Aucune contribution le {date}} one {# contribution le {date}} other {# contributions le {date}}}",
+        "less": "Moins",
+        "more": "Plus",
+        "days": {
+            "mon": "Lun",
+            "wed": "Mer",
+            "fri": "Ven"
+        },
+        "months": {
+            "jan": "Jan",
+            "feb": "Fév",
+            "mar": "Mar",
+            "apr": "Avr",
+            "may": "Mai",
+            "jun": "Juin",
+            "jul": "Juil",
+            "aug": "Août",
+            "sep": "Sep",
+            "oct": "Oct",
+            "nov": "Nov",
+            "dec": "Déc"
+        }
+    },
     "localTime": {
         "loadingCity": "Recherche de la ville...",
         "cityUnavailable": "Ville indisponible"

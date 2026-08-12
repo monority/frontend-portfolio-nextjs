@@ -74,7 +74,7 @@ export default function ProjectGalleryStage({
                         <span className="project-bento__gallery-count">{formatSlideCount(boundedActiveSlide, gallery.length)}</span>
                     </div>
 
-                    <div className="project-bento__gallery-rail">
+                    <div className="project-bento__gallery-rail" data-lenis-prevent>
                         {gallery.map((image, index) => <button key={`${project.id}-thumb-${index}`} type="button" className={`project-bento__gallery-rail-item${index === boundedActiveSlide ? " project-bento__gallery-rail-item--active" : ""}`} onClick={() => onSelectSlide(index)} aria-label={viewImageLabel(index + 1)} aria-pressed={index === boundedActiveSlide}><span className="project-bento__gallery-rail-image"><Image src={image} alt="" fill sizes="64px" className="project-bento__gallery-img" /></span></button>)}
                     </div>
                 </>}

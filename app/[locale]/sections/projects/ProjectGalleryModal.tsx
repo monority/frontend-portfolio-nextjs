@@ -89,7 +89,7 @@ export default function ProjectGalleryModal({
                 <div className="project-modal__body">
                     {hasMultiple && <button type="button" className="project-modal__nav" onClick={goToPrevious} aria-label={previousImageLabel}><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M10.75 4.5L6.25 9L10.75 13.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg></button>}
 
-                    <div className="project-modal__viewport">
+                    <div className="project-modal__viewport" data-lenis-prevent>
                         <div className="project-modal__image-shell">
                             <motion.div key={`${project.id}-modal-${boundedActiveSlide}`} className={`project-modal__image-zoom${isCompactSlide ? " project-modal__image-zoom--compact" : ""}`} animate={{ scale: zoom }} transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}>
                                 <Image src={activeImage} alt={`${project.titleDisplay} — ${boundedActiveSlide + 1}`} fill sizes="100vw" className={`project-modal__image${isCompactSlide ? " project-modal__image--compact" : ""}`} />
@@ -100,7 +100,7 @@ export default function ProjectGalleryModal({
                     {hasMultiple && <button type="button" className="project-modal__nav" onClick={goToNext} aria-label={nextImageLabel}><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M7.25 4.5L11.75 9L7.25 13.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg></button>}
                 </div>
 
-                {hasMultiple && <div className="project-modal__filmstrip">{gallery.map((image, index) => <button key={`${project.id}-modal-thumb-${index}`} type="button" className={`project-modal__thumb${index === boundedActiveSlide ? " project-modal__thumb--active" : ""}`} onClick={() => onSelectSlide(index)} aria-label={showImageLabel(index + 1)} aria-pressed={index === boundedActiveSlide}><span className="project-modal__thumb-image"><Image src={image} alt="" fill sizes="72px" className="project-bento__gallery-img" /></span></button>)}</div>}
+                {hasMultiple && <div className="project-modal__filmstrip" data-lenis-prevent>{gallery.map((image, index) => <button key={`${project.id}-modal-thumb-${index}`} type="button" className={`project-modal__thumb${index === boundedActiveSlide ? " project-modal__thumb--active" : ""}`} onClick={() => onSelectSlide(index)} aria-label={showImageLabel(index + 1)} aria-pressed={index === boundedActiveSlide}><span className="project-modal__thumb-image"><Image src={image} alt="" fill sizes="72px" className="project-bento__gallery-img" /></span></button>)}</div>}
             </motion.div>
         </motion.div>
     )

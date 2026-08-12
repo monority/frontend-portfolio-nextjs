@@ -1,7 +1,7 @@
 main {
     width: var(--max-width);
     margin: 0 auto;
-    margin-block-start: calc(var(--space) * 32);
+    margin-block-start: calc(var(--space) * 16);
 }
 
 section {

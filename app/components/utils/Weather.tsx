@@ -79,6 +79,7 @@ export default function Weather({
                         {weather.icon}
                     </span>
                     <span className="weather__temp">{weather.temperature}°C</span>
+                    <span className="weather__city">{city}</span>
                 </>
             ) : (
                 <>

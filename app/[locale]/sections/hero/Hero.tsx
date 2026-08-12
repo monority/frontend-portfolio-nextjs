@@ -8,6 +8,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ActionLink from "@/components/ui/action-link";
 import { Icon } from "@/components/ui/icon";
+import GitHubContributions from "@/components/GitHubContributions";
 import { sectionFadeUp, sectionStagger } from "@/components/ui/section/motion";
 import ContactReveal from "./ContactReveal";
 
@@ -118,6 +119,9 @@ export default function Hero() {
                                 </motion.div>
                             </div>
                             <span className="hero-header__caption">{t("avatarCaption")}</span>
+                            <div className="hero-header__github">
+                                <GitHubContributions username="monority" year={2026} />
+                            </div>
                         </div>
                     </motion.div>
                     <motion.div

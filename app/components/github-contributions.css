@@ -1,0 +1,278 @@
+/* ─────────────────────────────────────────────────────────────────
+   GITHUB CONTRIBUTIONS
+   - Matrice de contributions façon GitHub
+   - Rampe de couleurs GitHub locale au bloc via light-dark()
+   - Surface / bordures / rayons / espacements portés par les tokens
+   ───────────────────────────────────────────────────────────────── */
+
+.github-contributions {
+    /* Rampe GitHub — variantes claire / sombre via light-dark() */
+    --ghc-level-0: light-dark(#ebedf0, #151b23);
+    --ghc-level-1: light-dark(#9be9a8, #0e4429);
+    --ghc-level-2: light-dark(#40c463, #006d32);
+    --ghc-level-3: light-dark(#30a14e, #26a641);
+    --ghc-level-4: light-dark(#216e39, #39d353);
+
+    /* Taille de cellule — partagée entre grille et labels */
+    --ghc-cell: clamp(7px, 1.3vw, 12px);
+    --ghc-gap: clamp(1px, 0.2vw, 3px);
+    /* Largeur d'une colonne semaine = cellule + gap */
+    --ghc-col: calc(var(--ghc-cell) + var(--ghc-gap));
+
+    background: var(--card);
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--padding-lg);
+}
+
+/* ─── Header — titre + total à gauche, lien à droite ──────────── */
+.github-contributions__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.github-contributions__title {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.github-contributions__link {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.github-contributions__link:hover {
+    color: var(--foreground);
+}
+
+/* ─── Layout du graphique — jours à gauche, grille à droite ───── */
+.github-contributions__chart {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0;
+    align-items: start;
+}
+
+/* ─── Labels jours — colonne de gauche (Mon / Wed / Fri) ──────── */
+.github-contributions__day-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+    width: clamp(1.5rem, 3vw, 2rem);
+    flex-shrink: 0;
+    padding-top: calc(var(--ghc-cell) / 2);
+}
+
+.github-contributions__day-label {
+    height: calc(var(--ghc-cell) + var(--ghc-gap));
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: var(--space-xs);
+    color: var(--text-secondary);
+    font-size: var(--font-size-xs);
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+}
+
+/* ─── Zone principale — mois en haut, grille en bas ───────────── */
+.github-contributions__main {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* ─── Labels mois — barre horizontale au-dessus de la grille ───── */
+.github-contributions__month-labels {
+    position: relative;
+    height: var(--ghc-cell);
+    overflow: hidden;
+    width: max-content;
+    min-width: 100%;
+}
+
+.github-contributions__month-label {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: var(--font-size-xs);
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+    padding-left: 2px;
+}
+
+/* ─── Grille SVG scrollable ───────────────────────────────────── */
+.github-contributions__grid-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+}
+
+.github-contributions__grid {
+    display: block;
+    width: calc(var(--ghc-cols, 53) * var(--ghc-col));
+    height: calc(7 * var(--ghc-col));
+    max-width: none;
+}
+
+/* ─── Cellule de jour (rect SVG) ─────────────────────────────── */
+.github-contributions__cell {
+    transition: opacity var(--transition-fast);
+}
+
+.github-contributions__cell:hover {
+    opacity: 0.7;
+}
+
+.github-contributions__cell--is-current {
+    outline: none;
+}
+
+.github-contributions__cell-ring {
+    stroke: var(--color-info);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+    pointer-events: none;
+}
+
+.github-contributions__cell--level-0 { fill: var(--ghc-level-0); }
+.github-contributions__cell--level-1 { fill: var(--ghc-level-1); }
+.github-contributions__cell--level-2 { fill: var(--ghc-level-2); }
+.github-contributions__cell--level-3 { fill: var(--ghc-level-3); }
+.github-contributions__cell--level-4 { fill: var(--ghc-level-4); }
+
+/* ─── Légende — « Less » → 5 pastilles → « More » ─────────────── */
+.github-contributions__legend {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2px;
+    margin-top: var(--space-md);
+}
+
+.github-contributions__legend-label {
+    color: var(--text-secondary);
+    font-size: var(--font-size-xs);
+}
+
+.github-contributions__legend-label:first-child {
+    margin-right: 4px;
+}
+
+.github-contributions__legend-label:last-child {
+    margin-left: 4px;
+}
+
+.github-contributions__legend-swatch {
+    width: var(--ghc-cell);
+    height: var(--ghc-cell);
+    border-radius: clamp(1px, 0.15vw, 2px);
+}
+
+.github-contributions__legend-swatch--level-0 { background: var(--ghc-level-0); }
+.github-contributions__legend-swatch--level-1 { background: var(--ghc-level-1); }
+.github-contributions__legend-swatch--level-2 { background: var(--ghc-level-2); }
+.github-contributions__legend-swatch--level-3 { background: var(--ghc-level-3); }
+.github-contributions__legend-swatch--level-4 { background: var(--ghc-level-4); }
+
+/* ─── État chargement — skeleton pulse ────────────────────────── */
+.github-contributions--loading {
+    overflow: hidden;
+}
+
+.github-contributions__skeleton-bar {
+    width: 12rem;
+    height: 1.25rem;
+    margin-bottom: var(--space-md);
+    border-radius: var(--border-radius-sm);
+    background: var(--card-border);
+    animation: ghc-pulse 1.8s ease-in-out infinite;
+}
+
+.github-contributions__skeleton-month-bar {
+    width: 100%;
+    height: var(--ghc-cell);
+    border-radius: var(--border-radius-sm);
+    background: var(--card-border);
+    animation: ghc-pulse 1.8s ease-in-out infinite;
+}
+
+.github-contributions__skeleton-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--ghc-cols, 53), var(--ghc-cell));
+    grid-template-rows: repeat(7, var(--ghc-cell));
+    gap: var(--ghc-gap);
+    width: max-content;
+}
+
+.github-contributions__skeleton-week {
+    display: contents;
+}
+
+.github-contributions__skeleton-cell {
+    width: var(--ghc-cell);
+    height: var(--ghc-cell);
+    border-radius: clamp(1px, 0.15vw, 2px);
+    background: var(--card-border);
+    animation: ghc-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes ghc-pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.4; }
+}
+
+/* ─── État erreur ─────────────────────────────────────────────── */
+.github-contributions--error {
+    color: var(--color-error);
+    border-color: var(--color-error);
+    background: color-mix(in srgb, var(--color-error) 8%, transparent);
+    font-size: var(--font-size-sm);
+}
+
+/* ─── Petit écran ─────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .github-contributions {
+        padding: var(--padding-md);
+    }
+
+    .github-contributions__day-labels {
+        width: clamp(1.25rem, 4vw, 1.75rem);
+    }
+
+    .github-contributions__day-label {
+        font-size: calc(var(--font-size-xs) * 0.85);
+    }
+
+    .github-contributions__month-label {
+        font-size: calc(var(--font-size-xs) * 0.75);
+    }
+
+    .github-contributions__grid-scroll {
+        margin-left: calc(-1 * clamp(1.25rem, 4vw, 1.75rem));
+        padding-left: clamp(1.25rem, 4vw, 1.75rem);
+    }
+}
+
+/* ─── Accessibilité : prefers-reduced-motion ───────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .github-contributions__cell {
+        transition: none;
+    }
+
+    .github-contributions__skeleton-bar,
+    .github-contributions__skeleton-cell,
+    .github-contributions__skeleton-month-bar {
+        animation: none;
+    }
+}

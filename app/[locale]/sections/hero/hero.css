@@ -91,6 +91,9 @@
     letter-spacing: 0.02em;
 }
 
+.hero-header__github {
+    width: 100%;
+}
 
 .hero-contact {
     display: flex;
