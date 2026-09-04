@@ -188,7 +188,7 @@ export default function Header() {
                   </Button>
                 </li>
                 <li className="header-network__item">
-                  <Link href={localizedPath} className="btn btn-primary btn-sm" aria-label={t("languageSwitchTo")}>
+                  <Link href={localizedPath} className="btn btn-primary btn-md" aria-label={t("languageSwitchTo")}>
                     <Icon name="language" title={t("language")} sizeClass="icon-sm" className="header-network__icon" />
                   </Link>
                 </li>
