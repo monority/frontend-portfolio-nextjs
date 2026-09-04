@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Icon } from "@/components/ui/icon";
 import { sectionFadeUp, sectionViewport } from "@/components/ui/section/motion";
 
@@ -18,10 +18,25 @@ const NAV_LINKS = [
   { href: "#profile", key: "profile" },
 ] as const;
 
+const LEGAL_LINKS = {
+  en: [
+    ["legal-notice", "legal.legalNotice"],
+    ["privacy", "legal.privacy"],
+    ["cookies", "legal.cookies"],
+  ],
+  fr: [
+    ["mentions-legales", "legal.legalNotice"],
+    ["confidentialite", "legal.privacy"],
+    ["cookies", "legal.cookies"],
+  ],
+} as const;
+
 const year = new Date().getFullYear();
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const locale = useLocale();
+  const legalLinks = LEGAL_LINKS[locale as keyof typeof LEGAL_LINKS] ?? LEGAL_LINKS.en;
 
   return (
     <footer className="footer">
@@ -77,6 +92,19 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+          <nav className="footer-legal" aria-label={t("legalLabel")}>
+            <span className="footer-nav__heading">{t("legalHeading")}</span>
+            <ul className="footer-nav__list">
+              {legalLinks.map(([slug, labelKey]) => (
+                <li key={slug}>
+                  <Link href={`/${locale}/legal/${slug}`} className="footer-nav__link">
+                    {t(labelKey)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </motion.div>
 
         <div className="footer-bottom">

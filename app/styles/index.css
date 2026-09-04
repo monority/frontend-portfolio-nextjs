@@ -10,6 +10,7 @@
 @import "../features/layout/header.css" layer(layout);
 @import "../features/layout/footer.css" layer(layout);
 @import "../features/layout/sidenav.css" layer(layout);
+@import "../[locale]/legal/legal.css" layer(page);
 @import "../components/utils/weather.css" layer(layout);
 @import "../[locale]/sections/hero/hero.css" layer(page);
 @import "../[locale]/sections/about/about.css" layer(page);

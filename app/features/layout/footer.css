@@ -25,6 +25,10 @@
 		grid-template-columns: 2fr 1fr 1fr;
 		gap: var(--space-lg);
 	}
+
+	@media (min-width: 960px) {
+		grid-template-columns: 2fr 1fr 1fr 1fr;
+	}
 }
 
 .footer-brand {

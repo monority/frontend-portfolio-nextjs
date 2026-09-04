@@ -139,11 +139,74 @@
         "navLabel": "Navigation dans la page",
         "navHeading": "Navigation",
         "socialHeading": "Contact",
+            "legalLabel": "Informations légales",
+            "legalHeading": "Informations",
         "builtWith": "Construit avec Next.js · TypeScript · CSS",
         "nav": {
             "about": "À propos",
             "projects": "Projets",
             "profile": "Profil"
+        },
+        "legal": {
+            "legalNotice": "Mentions légales",
+            "privacy": "Confidentialité",
+            "cookies": "Cookies"
+        }
+    },
+    "legal": {
+        "legalNotice": {
+            "title": "Mentions légales",
+            "intro": "Informations sur l'éditeur et l'hébergement de ce portfolio.",
+            "sections": {
+                "publisher": {
+                    "title": "Éditeur",
+                    "paragraphs": "Ce site est édité par Ronan Chenu. Contact : ronanchenu.dev@gmail.com.\n\nSi ce site est utilisé dans le cadre d'une activité professionnelle, le statut juridique, l'adresse postale et les informations d'immatriculation de l'éditeur doivent être ajoutés ici avant sa mise en ligne."
+                },
+                "hosting": {
+                    "title": "Hébergement",
+                    "paragraphs": "Ce site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis. Site : vercel.com."
+                },
+                "intellectualProperty": {
+                    "title": "Propriété intellectuelle",
+                    "paragraphs": "Le contenu de ce site, notamment les textes, images, éléments de code et identité visuelle, est protégé par les lois applicables en matière de propriété intellectuelle. Toute reproduction ou réutilisation sans autorisation préalable est interdite, sauf exceptions prévues par la loi."
+                }
+            }
+        },
+        "privacy": {
+            "title": "Politique de confidentialité",
+            "intro": "Cette page explique comment les données personnelles sont traitées lors de l'utilisation de ce portfolio.",
+            "sections": {
+                "dataCollected": {
+                    "title": "Données collectées",
+                    "paragraphs": "Lorsque vous utilisez la messagerie, le pseudo temporaire et les messages envoyés sont traités afin de créer et de poursuivre la conversation.\n\nL'adresse IP peut être traitée temporairement pour protéger le service contre les abus et appliquer des limites de requêtes. Le thème choisi est conservé localement dans votre navigateur et n'est pas transmis à l'éditeur."
+                },
+                "purposesAndRecipients": {
+                    "title": "Finalités et destinataires",
+                    "paragraphs": "Les données servent à fournir le service de contact ou de messagerie demandé, à assurer la sécurité du site et à répondre à vos demandes. Les données de messagerie peuvent être stockées chez Supabase en tant que prestataire technique. Elles ne sont ni vendues ni utilisées à des fins publicitaires."
+                },
+                "retentionAndRights": {
+                    "title": "Conservation et droits",
+                    "paragraphs": "Les données sont conservées uniquement pendant la durée nécessaire au suivi de la conversation et au respect des obligations légales applicables. Vous pouvez demander l'accès, la rectification ou la suppression de vos données en écrivant à ronanchenu.dev@gmail.com.\n\nVous pouvez également déposer une réclamation auprès de l'autorité de protection des données de votre pays, notamment la CNIL en France."
+                }
+            }
+        },
+        "cookies": {
+            "title": "Politique relative aux cookies",
+            "intro": "Ce portfolio n'utilise pas de cookies publicitaires ni de cookies de mesure d'audience.",
+            "sections": {
+                "necessaryCookie": {
+                    "title": "Cookie strictement nécessaire",
+                    "paragraphs": "Lorsque vous démarrez une conversation, le site peut créer le cookie httpOnly portfolio-messaging-resume pour une durée maximale de 30 jours. Il contient un jeton technique permettant de reprendre la conversation depuis le même navigateur.\n\nCe cookie sert uniquement à la fonctionnalité de messagerie demandée par le visiteur. Il n'est pas utilisé à des fins publicitaires ou de suivi."
+                },
+                "localStorage": {
+                    "title": "Stockage local",
+                    "paragraphs": "Le thème clair ou sombre choisi et, le cas échéant, le jeton de reprise de messagerie sont stockés dans le stockage local de votre navigateur. Ces éléments servent à conserver le fonctionnement et les préférences du site ; ils ne sont pas transmis à des services publicitaires."
+                },
+                "managingChoices": {
+                    "title": "Gérer vos choix",
+                    "paragraphs": "Vous pouvez supprimer les cookies et les données du stockage local depuis les paramètres de votre navigateur. Le blocage du cookie de messagerie ou du stockage local peut empêcher la reprise d'une conversation."
+                }
+            }
         }
     },
     "messaging": {

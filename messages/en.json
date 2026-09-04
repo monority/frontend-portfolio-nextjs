@@ -139,11 +139,74 @@
     "navLabel": "Page navigation",
     "navHeading": "Navigate",
     "socialHeading": "Connect",
+    "legalLabel": "Legal information",
+    "legalHeading": "Information",
     "builtWith": "Built with Next.js · TypeScript · CSS",
     "nav": {
       "about": "About",
       "projects": "Projects",
       "profile": "Profile"
+    },
+    "legal": {
+      "legalNotice": "Legal notice",
+      "privacy": "Privacy",
+      "cookies": "Cookies"
+    }
+  },
+  "legal": {
+    "legalNotice": {
+      "title": "Legal notice",
+      "intro": "Information about the publisher and hosting of this portfolio.",
+      "sections": {
+        "publisher": {
+          "title": "Publisher",
+          "paragraphs": "This website is published by Ronan Chenu. Contact: ronanchenu.dev@gmail.com.\n\nIf this website is used for a professional activity, the publisher's legal status, postal address and registration details must be added here before publication."
+        },
+        "hosting": {
+          "title": "Hosting",
+          "paragraphs": "This website is hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, United States. Website: vercel.com."
+        },
+        "intellectualProperty": {
+          "title": "Intellectual property",
+          "paragraphs": "The content of this website, including text, images, code and visual identity, is protected by applicable intellectual property laws. Reproduction or reuse without prior permission is prohibited, except where legally permitted."
+        }
+      }
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "intro": "This page explains how personal data is handled when you use this portfolio.",
+      "sections": {
+        "dataCollected": {
+          "title": "Data collected",
+          "paragraphs": "When you use the messaging feature, the temporary username and messages you submit are processed so the conversation can be created and continued.\n\nThe technical IP address may be processed temporarily to protect the service against abuse and apply rate limits. The selected theme is stored locally in your browser and is not sent to the publisher."
+        },
+        "purposesAndRecipients": {
+          "title": "Purposes and recipients",
+          "paragraphs": "Data is used to provide the requested contact or messaging service, maintain security and respond to your requests. Messaging data may be stored with Supabase as the service provider. It is not sold or used for advertising."
+        },
+        "retentionAndRights": {
+          "title": "Retention and rights",
+          "paragraphs": "Data is retained only for as long as necessary to manage the conversation and meet applicable legal obligations. You may request access, correction or deletion of your data by contacting ronanchenu.dev@gmail.com.\n\nYou may also lodge a complaint with the data protection authority in your country, including the CNIL in France."
+        }
+      }
+    },
+    "cookies": {
+      "title": "Cookie policy",
+      "intro": "This portfolio does not use advertising cookies or audience measurement cookies.",
+      "sections": {
+        "necessaryCookie": {
+          "title": "Strictly necessary cookie",
+          "paragraphs": "When you start a conversation, the site may set the httpOnly cookie portfolio-messaging-resume for up to 30 days. It contains a technical resume token so the conversation can be continued from the same browser.\n\nThis cookie is used only for the messaging feature requested by the visitor and is not used for advertising or tracking."
+        },
+        "localStorage": {
+          "title": "Local storage",
+          "paragraphs": "The selected light or dark theme and, where applicable, the messaging resume token are stored in your browser's local storage. These items are used to preserve the site's functionality and preferences; they are not sent to advertising services."
+        },
+        "managingChoices": {
+          "title": "Managing your choices",
+          "paragraphs": "You can delete cookies and local storage data from your browser settings. Blocking the messaging cookie or local storage may prevent the conversation from being resumed."
+        }
+      }
     }
   },
   "messaging": {
