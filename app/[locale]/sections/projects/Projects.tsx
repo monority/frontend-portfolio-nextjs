@@ -7,6 +7,7 @@ import type { Project } from "@shared-types"
 import ProjectPicker from "./ProjectPicker"
 import ProjectVisual from "./ProjectVisual"
 import ProjectBentoDetails from "./ProjectBentoDetails"
+import OngoingProjects from "./OngoingProjects"
 import { SectionIntro, SectionShell } from "@/components/ui/section"
 import { getSectionThemeStyle } from "../shared/panelTheme"
 import { useActiveShowcaseItem } from "../shared/showcase"
@@ -36,6 +37,8 @@ export default function Projects() {
             <AnimatePresence mode="wait">
                 <ProjectBento key={activeProject.id} project={activeProject} locale={locale} content={content} />
             </AnimatePresence>
+
+            <OngoingProjects />
         </SectionShell>
     )
 }

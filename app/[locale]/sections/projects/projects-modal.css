@@ -142,9 +142,20 @@
     background-position: 0 0, 0 0, 12px 12px;
 }
 
+.project-modal__viewport--pannable {
+    cursor: grab;
+    touch-action: none;
+}
+
+.project-modal__viewport--pannable:active {
+    cursor: grabbing;
+}
+
 .project-modal__image-shell {
     position: relative;
+    min-width: 100%;
     min-height: 100%;
+    flex: 0 0 auto;
     display: grid;
     place-items: center;
     padding: clamp(0.6rem, 1.5vw, 1.1rem);
@@ -152,17 +163,14 @@
 
 .project-modal__image-zoom {
     position: relative;
-    width: min(100%, 88rem);
+    width: 100%;
+    height: 100%;
     aspect-ratio: 16 / 10;
-    transform-origin: center center;
-}
-
-.project-modal__image-zoom--compact {
-    width: min(80%, 70rem);
 }
 
 .project-modal__image {
     object-fit: contain;
+    image-rendering: auto;
 }
 
 .project-modal__image--compact {
@@ -226,10 +234,6 @@
 }
 
 @media (max-width: 680px) {
-    .project-modal__image-zoom--compact {
-        width: min(86%, 70rem);
-    }
-
     .project-modal__image--compact {
         inset: 0 !important;
     }

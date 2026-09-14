@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { useRef } from "react"
 import type { Project } from "@shared-types"
 
 type ProjectGalleryModalProps = {
@@ -61,6 +62,30 @@ export default function ProjectGalleryModal({
     minZoom,
     maxZoom,
 }: ProjectGalleryModalProps) {
+    const viewportRef = useRef<HTMLDivElement>(null)
+    const pointerRef = useRef({ active: false, x: 0, y: 0, scrollLeft: 0, scrollTop: 0 })
+
+    const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+        if (zoom <= minZoom || event.button !== 0) return
+
+        pointerRef.current = { active: true, x: event.clientX, y: event.clientY, scrollLeft: event.currentTarget.scrollLeft, scrollTop: event.currentTarget.scrollTop }
+        event.currentTarget.setPointerCapture(event.pointerId)
+    }
+
+    const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+        if (!pointerRef.current.active) return
+
+        const deltaX = event.clientX - pointerRef.current.x
+        const deltaY = event.clientY - pointerRef.current.y
+        event.currentTarget.scrollLeft = pointerRef.current.scrollLeft - deltaX
+        event.currentTarget.scrollTop = pointerRef.current.scrollTop - deltaY
+    }
+
+    const handlePointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
+        pointerRef.current.active = false
+        event.currentTarget.releasePointerCapture(event.pointerId)
+    }
+
     return (
         <motion.div className="project-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose}>
             <motion.div className="project-modal__surface" initial={{ opacity: 0, y: 24, scale: 0.985 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 18, scale: 0.98 }} transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }} onClick={(event) => event.stopPropagation()} role="dialog" aria-modal="true" aria-label={`${project.titleDisplay} gallery`}>
@@ -89,11 +114,19 @@ export default function ProjectGalleryModal({
                 <div className="project-modal__body">
                     {hasMultiple && <button type="button" className="project-modal__nav" onClick={goToPrevious} aria-label={previousImageLabel}><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M10.75 4.5L6.25 9L10.75 13.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg></button>}
 
-                    <div className="project-modal__viewport" data-lenis-prevent>
-                        <div className="project-modal__image-shell">
-                            <motion.div key={`${project.id}-modal-${boundedActiveSlide}`} className={`project-modal__image-zoom${isCompactSlide ? " project-modal__image-zoom--compact" : ""}`} animate={{ scale: zoom }} transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}>
-                                <Image src={activeImage} alt={`${project.titleDisplay} — ${boundedActiveSlide + 1}`} fill sizes="100vw" className={`project-modal__image${isCompactSlide ? " project-modal__image--compact" : ""}`} />
-                            </motion.div>
+                    <div
+                        ref={viewportRef}
+                        className={`project-modal__viewport${zoom > minZoom ? " project-modal__viewport--pannable" : ""}`}
+                        data-lenis-prevent
+                        onPointerDown={handlePointerDown}
+                        onPointerMove={handlePointerMove}
+                        onPointerUp={handlePointerUp}
+                        onPointerCancel={handlePointerUp}
+                    >
+                        <div className="project-modal__image-shell" style={{ width: `${zoom * 100}%`, height: `${zoom * 100}%` }}>
+                            <div key={`${project.id}-modal-${boundedActiveSlide}`} className="project-modal__image-zoom">
+                                <Image src={activeImage} alt={`${project.titleDisplay} — ${boundedActiveSlide + 1}`} fill sizes="(max-width: 860px) 100vw, calc(100vw - 8rem)" quality={95} className={`project-modal__image${isCompactSlide ? " project-modal__image--compact" : ""}`} />
+                            </div>
                         </div>
                     </div>
 
