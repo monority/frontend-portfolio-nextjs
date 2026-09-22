@@ -35,7 +35,7 @@ export default function Creation() {
     return (
         <SectionShell id="creation" className="creation">
             <SectionIntro
-                number="03"
+                number="04"
                 label={content.sectionLabel}
                 title={content.heading}
                 intro={content.intro}

@@ -1,5 +1,5 @@
 import { Footer, Header, SideNav } from "@/features/layout";
-import { About, Creation, Hero, Modules, Profile, Projects } from "./sections";
+import { About, Creation, Hero, Mods, Modules, Profile, Projects } from "./sections";
 
 export default function HomePage() {
     return (
@@ -10,6 +10,7 @@ export default function HomePage() {
                 <Hero />
                 <About />
                 <Projects />
+                <Mods />
                 <Creation />
                 <Modules />
                 <Profile />

@@ -71,3 +71,6 @@ export type IconName =
   | 'monority'
   | 'npm'
   | 'python'
+  | 'lua'
+  | 'cpp'
+  | 'ue4ss'

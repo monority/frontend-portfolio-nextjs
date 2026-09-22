@@ -28,7 +28,7 @@ export default function Modules() {
     return (
         <SectionShell id="modules" className="modules">
             <SectionIntro
-                number="04"
+                number="05"
                 label={content.sectionLabel}
                 title={content.heading}
                 intro={content.intro}

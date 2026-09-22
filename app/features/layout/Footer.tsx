@@ -15,6 +15,7 @@ const SOCIAL_LINKS = [
 const NAV_LINKS = [
   { href: "#about", key: "about" },
   { href: "#projects", key: "projects" },
+  { href: "#mods", key: "mods" },
   { href: "#profile", key: "profile" },
 ] as const;
 
